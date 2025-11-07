@@ -1,5 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"/>
+
+<meta charset="utf-t"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Mira Network: Building the Trust Layer for a Verifiable AI Future</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
@@ -9,568 +10,621 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://us-tiangong-data.oss-accelerate.aliyuncs.com/doc/gemini_css/macarons_v2.js?OSSAccessKeyId=LTAI5tGmBYBVtG6Cxb4BaviJ&amp;Expires=4914188330&amp;Signature=mE%2FFv6owOnvs%2FB7rWTRxwD9tj9M%3D"></script>
 <style>.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 24px 40px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    }
+max-width: 800px;
+margin: 0 auto;
+padding: 24px 40px;
+background-color: #fff;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
 .chart-container {
-    position: relative;
-    margin: 3em auto;
-    max-width: 700px;
-    min-height: 200px;
-    max-height: 400px;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-    }
+position: relative;
+margin: 3em auto;
+max-width: 700px;
+min-height: 200px;
+max-height: 400px;
+width: 100%;
+height: auto;
+overflow: visible;
+}
 img {
-    display: block;
-    overflow: hidden;
-    max-width: 100%;
-    max-height: 280px;
-    margin: 1em auto;
-    border-radius: 8px;
-    }
+display: block;
+overflow: hidden;
+max-width: 100%;
+max-height: 280px;
+margin: 1em auto;
+border-radius: 8px;
+}
 h1 {
-    font-size: 28px;
-    margin-top: 24px;
-    margin-bottom: 20px;
-    }
+font-size: 28px;
+margin-top: 24px;
+margin-bottom: 20px;
+}
 h2 {
-    font-size: 22px;
-    }
+font-size: 22px;
+}
 h3 {
-    font-size: 20px;
-    }
+font-size: 20px;
+}
 h4 {
-    font-size: 18px;
-    }
+font-size: 18px;
+}
 h5 {
-    font-size: 16px;
-    }
+font-size: 16px;
+}
 :root {
-    --primary-color: #0d1117;
-    --secondary-color: #161b22;
-    --text-color: #c9d1d9;
-    --header-color: #f0f6fc;
-    --accent-color: #58a6ff;
-    --border-color: #30363d;
-    --code-bg-color: #1c2128;
-    --link-hover-color: #8ec3ff;
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    }
+--primary-color: #ffffff;
+--secondary-color: #f8f9fa;
+--text-color: #212529;
+--header-color: #000000;
+--accent-color: #007bff;
+--border-color: #dee2e6;
+--code-bg-color: #e9ecef;
+--link-hover-color: #0056b3;
+--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
 body {
-    line-height: 1.7;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    margin: 0 24px 0 24px;
-    padding: 0;
-    font-size: 16px;
-    max-width: None;
-    }
+line-height: 1.7;
+background-color: var(--primary-color);
+color: var(--text-color);
+margin: 0 24px 0 24px;
+padding: 0;
+font-size: 16px;
+max-width: None;
+}
 header {
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 20px;
-    margin-bottom: 40px;
-    text-align: center;
-    }
+border-bottom: 1px solid var(--border-color);
+padding-bottom: 20px;
+margin-bottom: 40px;
+text-align: center;
+}
 header h1 {
-    font-size: 2.8em;
-    margin-bottom: 10px;
-    line-height: 1.2;
-    font-weight: 700;
-    }
+font-size: 2.8em;
+margin-bottom: 10px;
+line-height: 1.2;
+font-weight: 700;
+color: var(--header-color);
+}
 header .meta {
-    font-size: 0.9em;
-    color: #8b949e;
-    }
+font-size: 0.9em;
+color: #6c757d;
+}
 article h2, article h3, article h4 {
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-weight: 600;
-    }
+border-bottom: 1px solid var(--border-color);
+padding-bottom: 10px;
+margin-top: 40px;
+margin-bottom: 20px;
+font-weight: 600;
+color: var(--header-color);
+}
 article h2 {
-    font-size: 2em;
-    }
+font-size: 2em;
+}
 article h3 {
-    font-size: 1.6em;
-    }
+font-size: 1.6em;
+}
 article h4 {
-    font-size: 1.3em;
-    }
+font-size: 1.3em;
+}
 a {
-    text-decoration: none;
-    }
+color: var(--accent-color);
+text-decoration: none;
+}
 a:hover {
-    text-decoration: underline;
-    color: var(--link-hover-color);
-    }
+text-decoration: underline;
+color: var(--link-hover-color);
+}
 p, ul, ol {
-    margin-bottom: 1.5em;
-    }
+margin-bottom: 1.5em;
+}
 ul, ol {
-    padding-left: 25px;
-    }
+padding-left: 25px;
+}
 li {
-    margin-bottom: 0.5em;
-    }
+margin-bottom: 0.5em;
+}
 strong {
-    font-weight: 600;
-    }
+font-weight: 600;
+}
 blockquote {
-    border-left: 4px solid var(--border-color);
-    padding-left: 20px;
-    margin: 2em 0;
-    color: #8b949e;
-    font-style: italic;
-    }
+border-left: 4px solid var(--border-color);
+padding-left: 20px;
+margin: 2em 0;
+color: #6c757d;
+font-style: italic;
+background-color: var(--secondary-color);
+}
 pre, code {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: 0.9em;
-    }
+font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+font-size: 0.9em;
+}
 pre {
-    background-color: var(--code-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 16px;
-    overflow-x: auto;
-    line-height: 1.45;
-    }
+background-color: var(--code-bg-color);
+border: 1px solid var(--border-color);
+border-radius: 6px;
+padding: 16px;
+overflow-x: auto;
+line-height: 1.45;
+}
 code {
-    background-color: var(--code-bg-color);
-    padding: 0.2em 0.4em;
-    margin: 0;
-    border-radius: 3px;
-    }
+background-color: var(--code-bg-color);
+padding: 0.2em 0.4em;
+margin: 0;
+border-radius: 3px;
+color: #d63384;
+}
 pre code {
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    border: none;
-    }
+padding: 0;
+margin: 0;
+background-color: transparent;
+border: none;
+color: inherit;
+}
 .img-container {
-    margin: 40px 0;
-    text-align: center;
-    }
+margin: 40px 0;
+text-align: center;
+}
 .img-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    background-color: #fff;
-    }
+max-width: 100%;
+height: auto;
+border-radius: 8px;
+background-color: #fff;
+}
 .img-container .caption {
-    font-size: 0.85em;
-    color: #8b949e;
-    margin-top: 10px;
-    font-style: italic;
-    }
+font-size: 0.85em;
+color: #6c757d;
+margin-top: 10px;
+font-style: italic;
+}
 .table-container {
-    overflow-x: auto;
-    margin: 30px 0;
-    }
+overflow-x: auto;
+margin: 30px 0;
+border: 1px solid var(--border-color);
+border-radius: 8px;
+}
 table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9em;
-    }
+width: 100%;
+border-collapse: collapse;
+font-size: 0.9em;
+}
 th, td {
-    padding: 12px 15px;
-    text-align: left;
-    }
+padding: 12px 15px;
+text-align: left;
+border-bottom: 1px solid var(--border-color);
+}
 th {
-    color: var(--header-color);
-    font-weight: 600;
-    }
+background-color: var(--secondary-color);
+color: var(--header-color);
+font-weight: 600;
+}
 tr:nth-child(even) {
-    background-color: var(--secondary-color);
-    }
+background-color: var(--secondary-color);
+}
+tr:last-child td {
+border-bottom: none;
+}
 .cta-box {
-    background-color: var(--secondary-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 30px;
-    margin: 50px 0;
-    text-align: center;
-    }
+background-color: var(--secondary-color);
+border: 1px solid var(--border-color);
+border-radius: 8px;
+padding: 30px;
+margin: 50px 0;
+text-align: center;
+}
 .cta-box h3 {
-    margin-top: 0;
-    border-bottom: none;
-    }
+margin-top: 0;
+border-bottom: none;
+}
 .cta-button {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: 600;
-    margin: 10px;
-    transition: background-color 0.2s ease;
-    }
+display: inline-block;
+background-color: var(--accent-color);
+color: #fff;
+padding: 12px 24px;
+border-radius: 6px;
+font-weight: 600;
+margin: 10px;
+transition: background-color 0.2s ease;
+}
 .cta-button:hover {
-    background-color: var(--link-hover-color);
-    text-decoration: none;
-    color: var(--primary-color);
-    }
+background-color: var(--link-hover-color);
+text-decoration: none;
+color: #fff;
+}
 .infographic {
-    background-color: var(--secondary-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 20px;
-    margin: 40px 0;
-    }
+background-color: var(--secondary-color);
+border: 1px solid var(--border-color);
+border-radius: 8px;
+padding: 20px;
+margin: 40px 0;
+}
 .infographic-title {
-    text-align: center;
-    font-size: 1.4em;
-    color: var(--header-color);
-    margin-bottom: 20px;
-    font-weight: 600;
-    }
+text-align: center;
+font-size: 1.4em;
+color: var(--header-color);
+margin-bottom: 20px;
+font-weight: 600;
+}
 .flowchart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 .flowchart-step {
-    background-color: var(--primary-color);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 15px 25px;
-    margin: 10px 0;
-    width: 80%;
-    text-align: center;
-    position: relative;
-    }
+background-color: #fff;
+border: 1px solid var(--border-color);
+border-radius: 5px;
+padding: 15px 25px;
+margin: 10px 0;
+width: 80%;
+text-align: center;
+position: relative;
+}
 .flowchart-step h5 {
-    margin: 0 0 5px 0;
-    color: var(--accent-color);
-    font-size: 1.1em;
-    }
+margin: 0 0 5px 0;
+color: var(--accent-color);
+font-size: 1.1em;
+}
 .flowchart-step p {
-    margin: 0;
-    font-size: 0.9em;
-    }
+margin: 0;
+font-size: 0.9em;
+}
 .flowchart-arrow {
-    font-size: 2em;
-    color: var(--border-color);
-    margin: 5px 0;
-    }
+font-size: 2em;
+color: var(--border-color);
+margin: 5px 0;
+}
 .comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    }
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+}
 .comparison-card {
-    background-color: var(--primary-color);
-    border: 1px solid var(--border-color);
-    padding: 20px;
-    border-radius: 8px;
-    }
+background-color: var(--primary-color);
+border: 1px solid var(--border-color);
+padding: 20px;
+border-radius: 8px;
+}
 .comparison-card h5 {
-    margin-top: 0;
-    color: var(--accent-color);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
-    }
+margin-top: 0;
+color: var(--accent-color);
+border-bottom: 1px solid var(--border-color);
+padding-bottom: 10px;
+}
 .comparison-card ul {
-    padding-left: 20px;
-    font-size: 0.9em;
-    }
+padding-left: 20px;
+font-size: 0.9em;
+}
 .comparison-card ul li::marker {
-    color: var(--accent-color);
-    }
+color: var(--accent-color);
+}
 .token-distribution-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-    }
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 20px;
+}
 .token-chart {
-    flex: 1 1 400px;
-    min-height: 400px;
-    }
+flex: 1 1 400px;
+min-height: 400px;
+}
 .token-legend {
-    flex: 1 1 300px;
-    }
+flex: 1 1 300px;
+}
 .token-legend ul {
-    list-style: none;
-    padding: 0;
-    }
+list-style: none;
+padding: 0;
+}
 .token-legend li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 0.9em;
-    }
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+font-size: 0.9em;
+}
 .legend-color-box {
-    width: 16px;
-    height: 16px;
-    margin-right: 10px;
-    border-radius: 3px;
-    }
+width: 16px;
+height: 16px;
+margin-right: 10px;
+border-radius: 3px;
+}
 .roadmap-timeline {
-    position: relative;
-    padding: 20px 0;
-    }
+position: relative;
+padding: 20px 0;
+}
 .roadmap-timeline::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: var(--border-color);
-    transform: translatex(-50%);
-    }
+content: "";
+position: absolute;
+left: 50%;
+top: 0;
+bottom: 0;
+width: 2px;
+background-color: var(--border-color);
+transform: translatex(-50%);
+}
 .roadmap-item {
-    position: relative;
-    width: 50%;
-    padding: 10px 40px;
-    box-sizing: border-box;
-    }
+position: relative;
+width: 50%;
+padding: 10px 40px;
+box-sizing: border-box;
+}
 .roadmap-item:nth-child(odd) {
-    left: 0;
-    text-align: right;
-    }
+left: 0;
+text-align: right;
+}
 .roadmap-item:nth-child(even) {
-    left: 50%;
-    text-align: left;
-    }
+left: 50%;
+text-align: left;
+}
 .roadmap-item::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    right: -11px;
-    top: 50%;
-    transform: translatey(-50%);
-    background-color: var(--primary-color);
-    border: 3px solid var(--accent-color);
-    border-radius: 50%;
-    z-index: 1;
-    }
+content: "";
+position: absolute;
+width: 20px;
+height: 20px;
+right: -11px;
+top: 50%;
+transform: translatey(-50%);
+background-color: var(--primary-color);
+border: 3px solid var(--accent-color);
+border-radius: 50%;
+z-index: 1;
+}
 .roadmap-item:nth-child(even)::after {
-    left: -9px;
-    }
+left: -9px;
+}
 .roadmap-content {
-    padding: 20px;
-    background-color: var(--secondary-color);
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    }
+padding: 20px;
+background-color: var(--secondary-color);
+border-radius: 6px;
+border: 1px solid var(--border-color);
+}
 .roadmap-content h5 {
-    margin-top: 0;
-    color: var(--accent-color);
-    }
+margin-top: 0;
+color: var(--accent-color);
+}
 .roadmap-content p {
-    margin-bottom: 0;
-    font-size: 0.9em;
-    }
+margin-bottom: 0;
+font-size: 0.9em;
+}
 .ecosystem-map {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 500px;
-    padding: 20px;
-    }
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 500px;
+padding: 20px;
+}
 .ecosystem-center {
-    width: 120px;
-    height: 120px;
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.5em;
-    z-index: 2;
-    text-align: center;
-    line-height: 1.2;
-    }
+width: 120px;
+height: 120px;
+background-color: var(--accent-color);
+color: #fff;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+font-weight: bold;
+font-size: 1.5em;
+z-index: 2;
+text-align: center;
+line-height: 1.2;
+box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
 .ecosystem-orbit {
-    position: absolute;
-    border: 1px dashed var(--border-color);
-    border-radius: 50%;
-    }
+position: absolute;
+border: 1px dashed var(--border-color);
+border-radius: 50%;
+}
 .orbit-1 {
-    width: 250px;
-    height: 250px;
-    }
+width: 250px;
+height: 250px;
+}
 .orbit-2 {
-    width: 400px;
-    height: 400px;
-    }
+width: 400px;
+height: 400px;
+}
 .orbit-3 {
-    width: 550px;
-    height: 550px;
-    }
+width: 550px;
+height: 550px;
+}
 .ecosystem-partner {
-    position: absolute;
-    background-color: var(--secondary-color);
-    padding: 8px 12px;
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    font-size: 0.85em;
-    white-space: nowrap;
-    transform: translate(-50%, -50%);
-    }
+position: absolute;
+background-color: #fff;
+padding: 8px 12px;
+border-radius: 20px;
+border: 1px solid var(--border-color);
+font-size: 0.85em;
+white-space: nowrap;
+transform: translate(-50%, -50%);
+box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2em;
-        }
-    article h2 {
-        font-size: 1.8em;
-        }
-    article h3 {
-        font-size: 1.4em;
-        }
-    .comparison-grid {
-        grid-template-columns: 1fr;
-        }
-    .roadmap-timeline::before {
-        left: 10px;
-        }
-    .roadmap-item, .roadmap-item:nth-child(even) {
-        width: 100%;
-        left: 0;
-        padding-left: 60px;
-        padding-right: 10px;
-        text-align: left;
-        }
-    .roadmap-item::after, .roadmap-item:nth-child(even)::after {
-        left: 0;
-        }
-    .ecosystem-map {
-        display: none;
-        }
-    /* Simplified for mobile */
-    .ecosystem-list {
-        display: block;
-        }
-    }
+header h1 {
+font-size: 2.2em;
+}
+article h2 {
+font-size: 1.8em;
+}
+article h3 {
+font-size: 1.4em;
+}
+.comparison-grid {
+grid-template-columns: 1fr;
+}
+.roadmap-timeline::before {
+left: 10px;
+}
+.roadmap-item, .roadmap-item:nth-child(even) {
+width: 100%;
+left: 0;
+padding-left: 60px;
+padding-right: 10px;
+text-align: left;
+}
+.roadmap-item::after, .roadmap-item:nth-child(even)::after {
+left: 0;
+}
+.ecosystem-map {
+display: none;
+}
+/* Simplified for mobile */
 .ecosystem-list {
-    display: none;
-    }
+display: block;
+}
+}
+.ecosystem-list {
+display: none;
+}
 /* Hidden on desktop */
 @media only screen and (max-device-width: 768px) {
-            body {
-                padding: 0;
-                margin: 0;
-                font-size: 15px;
-                line-height: 1.5;
-            }
+body {
+padding: 0;
+margin: 0;
+font-size: 15px;
+line-height: 1.5;
+}
 
-            .container {
-                padding: 0;
-                margin: 16px 20px 30px;
-                box-shadow: none;
-            }
-
-            h1,
-            h2,
-            h3,
-            h4 {
-            }
-
-            h1 {
-                font-size: 1.87em;
-                line-height: 1.6;
-                margin-bottom: 0.5em;
-                text-align: center;
-            }
-
-            h2 {
-                font-size: 1.6em;
-                font-weight: 600;
-                margin-top: 1.3em;
-                margin-bottom: 0.8em;
-                border-bottom: 1px solid #eee;
-                padding-bottom: 0.5em;
-            }
-
-            h3 {
-                font-size: 1.2em;
-                font-weight: 600;
-                margin-top: 1em;
-                margin-bottom: 0.6em;
-            }
-
-            h4 {
-                font-size: 1.1em;
-                font-weight: 500;
-                margin-top: 1em;
-                margin-bottom: 0.5em;
-                font-style: normal;
-            }
-
-            h5 {
-                font-size: 1em;
-                font-weight: 500;
-                margin-bottom: 1.2em;
-            }
-
-            ul,
-            ol {
-                font-size: 1em; /* Equivalent to 17.6px if base is 16px */
-                font-weight: 400;
-                margin-bottom: 1.2em;
-                line-height: 1.8;
-            }
-
-            p {
-                font-size: 1em;
-                line-height: 1.8; /* Equivalent to 17.6px if base is 16px */
-                font-weight: 400;
-                margin-top: 0.8em;
-                margin-bottom: 0.8em;
-            }
-
-            blockquote {
-                padding: 1em 1.2em;
-
-            p {
-                margin: 0;
-            }
+code
+Code
+download
+content_copy
+expand_less
+.container {
+            padding: 0;
+            margin: 16px 20px 30px;
+            box-shadow: none;
         }
 
-        figcaption {
-            margin-top: 0.5em;
-            font-size: 0.8em; /* Equivalent to 17.6px if base is 16px */
-            font-weight: 400;
+        h1,
+        h2,
+        h3,
+        h4 {
+        }
+
+        h1 {
+            font-size: 1.87em;
+            line-height: 1.6;
+            margin-bottom: 0.5em;
             text-align: center;
-            font-style: normal;
-            color: #7F8896;
         }
 
-        img {
-            display: block;
-            overflow: hidden;
-            max-width: 100%;
-            max-height: 335px;
-            margin: 1em auto;
-            border-radius: 8px;
+        h2 {
+            font-size: 1.6em;
+            font-weight: 600;
+            margin-top: 1.3em;
+            margin-bottom: 0.8em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5em;
         }
-        }</style>
+
+        h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-top: 1em;
+            margin-bottom: 0.6em;
+        }
+
+        h4 {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            font-style: normal;
+        }
+
+        h5 {
+            font-size: 1em;
+            font-weight: 500;
+            margin-bottom: 1.2em;
+        }
+
+        ul,
+        ol {
+            font-size: 1em; /* Equivalent to 17.6px if base is 16px */
+            font-weight: 400;
+            margin-bottom: 1.2em;
+            line-height: 1.8;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.8; /* Equivalent to 17.6px if base is 16px */
+            font-weight: 400;
+            margin-top: 0.8em;
+            margin-bottom: 0.8em;
+        }
+
+        blockquote {
+            padding: 1em 1.2em;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    figcaption {
+        margin-top: 0.5em;
+        font-size: 0.8em; /* Equivalent to 17.6px if base is 16px */
+        font-weight: 400;
+        text-align: center;
+        font-style: normal;
+        color: #7F8896;
+    }
+
+    img {
+        display: block;
+        overflow: hidden;
+        max-width: 100%;
+        max-height: 335px;
+        margin: 1em auto;
+        border-radius: 8px;
+    }
+    }
+
+.reference-container {
+margin-top: 50px;
+border-top: 1px solid var(--border-color);
+padding-top: 20px;
+}
+.reference-section .reference-title {
+font-size: 1.5em;
+margin-bottom: 20px;
+color: var(--header-color);
+}
+.reference-list .reference-item {
+display: flex;
+margin-bottom: 15px;
+font-size: 0.9em;
+}
+.reference-list .reference-number {
+margin-right: 10px;
+color: var(--accent-color);
+font-weight: bold;
+}
+.reference-list .reference-content {
+flex-grow: 1;
+}
+.reference-list .reference-text-container {
+margin-bottom: 5px;
+}
+.reference-list .reference-link {
+word-break: break-all;
+color: #6c757d;
+}
+</style>
+
 <link rel="stylesheet" href="https://static.skywork.ai/fe/skywork-site-assets/styles/doc_reference_style.css?v=1986743153661890560"/></head>
 <body>
 <div class="container">
 <header>
 <h1 id="section-1">Mira Network: Building the Trust Layer for a Verifiable AI Future</h1>
 <div class="meta">
-                Published on November 7, 2025
-            </div>
+Published on November 7, 2025
+</div>
 </header>
 <p>The world is in the midst of an artificial intelligence revolution. From chatbots that write poetry to sophisticated agents that generate code, AI is experiencing a level of adoption that the crypto world has long dreamed of. According to a <a href="https://www.bpm.com/insights/blockchain-and-digital-assets-outlook-2025/" target="_blank">2025 industry outlook</a>, the convergence of AI and blockchain is a major trend, with the market projected to exceed $703 million this year. The total market for AI tokens alone has exploded, surging from $2.7 billion in April 2023 to over $36 billion by mid-2025, as noted in a recent <a href="https://explodingtopics.com/blog/cryptocurrency-trends" target="_blank">Exploding Topics report</a>.</p>
 <p>However, this rapid ascent has cast a harsh light on one of AI&#39;s most persistent and dangerous flaws: <strong>unreliability</strong>. Even the most advanced models, like OpenAI&#39;s GPT-4o, have faced criticism for producing outputs that are polished yet patronizing, or worse, factually incorrect. These errors, broadly categorized as &#34;hallucinations&#34; and &#34;bias,&#34; are not just minor glitches; they are fundamental barriers preventing AI from achieving its transformative potential. From fabricated legal cases cited in courtrooms to flawed medical diagnoses, the consequences of unreliable AI are already causing measurable damage.</p>
 <blockquote>
-                As AI adoption accelerates, the unintended consequences of inaccurate outputs are becoming more evident, with significant implications on trust, safety, and decision-making. The need for a trust layer is no longer a theoretical concept but a practical necessity.
-            </blockquote>
+As AI adoption accelerates, the unintended consequences of inaccurate outputs are becoming more evident, with significant implications on trust, safety, and decision-making. The need for a trust layer is no longer a theoretical concept but a practical necessity.
+</blockquote>
 <p>This is where the worlds of AI and crypto finally, meaningfully, converge. Just as blockchain brought verifiable scarcity to digital assets, it can now bring verifiable truth to digital intelligence. Enter <strong><a href="https://mira.network/" target="_blank">Mira Network</a></strong>, a groundbreaking project positioning itself as the essential trust layer for AI. By building a decentralized verification protocol, Mira is not just improving AI—it&#39;s making it safer, more reliable, and truly autonomous. This is the story of how Mira is solving AI&#39;s trillion-dollar reliability problem.</p>
 <h2 id="section-1">The AI Reliability Crisis: Understanding the Training Dilemma</h2>
 <p>To appreciate the magnitude of what Mira is solving, we must first understand why AI models are inherently unreliable. The core of the issue lies in what is known as the &#34;training dilemma,&#34; a problem analogous to the precision-accuracy trade-off in classical science.</p>
@@ -601,18 +655,18 @@ tr:nth-child(even) {
 </ul>
 </div>
 </div>
-<p style="text-align:center; margin-top:20px; font-style:italic; color: #8b949e;">This trade-off establishes a minimum error rate that cannot be overcome by any single AI model, regardless of its scale or architecture.</p>
+<p style="text-align:center; margin-top:20px; font-style:italic; color: #6c757d;">This trade-off establishes a minimum error rate that cannot be overcome by any single AI model, regardless of its scale or architecture.</p>
 </div>
 <p>While fine-tuning can improve reliability within narrow domains, these specialized models struggle to incorporate new knowledge and handle unexpected edge cases. The only viable path forward is a multi-model consensus architecture. However, simply assembling an ensemble of models under a centralized authority is not a true solution, as the curator&#39;s own biases will inevitably influence the outcome. True reliability requires decentralized consensus, where a diverse network of independent models can collectively verify information, filter out hallucinations, and balance individual biases. This is precisely the infrastructure Mira Network is building.</p>
 <h2 id="section-2">Introducing Mira Network: The Decentralized Verification Protocol for AI</h2>
-<p>Mira Network is a pioneering decentralized protocol designed to solve AI&#39;s fundamental reliability problem through trustless, on-chain consensus. It functions as a middleware network that transforms unreliable AI outputs into cryptographically verified information, acting as a crucial bridge between users and the underlying AI models.</p>
-<p>The mission is ambitious yet clear: to build the foundational infrastructure for trustless, verified intelligence at scale. By leveraging blockchain technology, Mira creates a new paradigm where AI systems can operate autonomously with unprecedented reliability, addressing the core challenge that has prevented AI from reaching its full transformative potential. As of late 2025, the Mira ecosystem already supports over <strong>4.5 million users</strong> and processes billions of tokens daily, demonstrating its scalability and real-world traction <a href="https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/" target="_blank">Ainvest</a>, <em data-ref-id="1986743146326052864" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052864" data-sk-source-text=","></em>.</p>
+<p>Mira Network is a pioneering decentralized protocol designed to solve AI's fundamental reliability problem through trustless, on-chain consensus.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFmmPRokAQhnWYQ4tDLL3awRcf1TfNW1xQikD60YkGNRko753EgU5TRFLMlkPn_2yeA_qBXCPoAijWeYaWSAcoPj-OkJB_jUKBPD9GDKWp5lYImOBolYBJ5zIfcPZK8pL9tLU09oWbErBridFTwQxNzcHq58j6y6zw3l6Qc_afD_-1DEgSOkeRHKMzTo30VfL5XHetv92_Bwm9RRkiMPx3IEB623FRdHcM5Mb4R5gFnVpc%3D)] It functions as a middleware network that transforms unreliable AI outputs into cryptographically verified information, acting as a crucial bridge between users and the underlying AI models.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFmmPRokAQhnWYQ4tDLL3awRcf1TfNW1xQikD60YkGNRko753EgU5TRFLMlkPn_2yeA_qBXCPoAijWeYaWSAcoPj-OkJB_jUKBPD9GDKWp5lYImOBolYBJ5zIfcPZK8pL9tLU09oWbErBridFTwQxNzcHq58j6y6zw3l6Qc_afD_-1DEgSOkeRHKMzTo30VfL5XHetv92_Bwm9RRkiMPx3IEB623FRdHcM5Mb4R5gFnVpc%3D)]</p>
+<p>The mission is ambitious yet clear: to build the foundational infrastructure for trustless, verified intelligence at scale. By leveraging blockchain technology, Mira creates a new paradigm where AI systems can operate autonomously with unprecedented reliability, addressing the core challenge that has prevented AI from reaching its full transformative potential. As of late 2025, the Mira ecosystem already supports over <strong>4.5 million users</strong> and processes billions of tokens daily, demonstrating its scalability and real-world traction.</p>
 <blockquote>
-                &#34;While projects like Chainlink brought reliability to DeFi, Mira is doing the same for AI, making it safer, verifiable, and truly autonomous.&#34; - <a href="https://medium.com/@jenniferchukwuma2020/mira-the-trust-layer-for-ai-bae204e44672" target="_blank">Jennifer Chukwuma, Tech Analyst</a>
+&#34;While projects like Chainlink brought reliability to DeFi, Mira is doing the same for AI, making it safer, verifiable, and truly autonomous.&#34; - <a href="https://medium.com/@jenniferchukwuma2020/mira-the-trust-layer-for-ai-bae204e44672" target="_blank">Jennifer Chukwuma, Tech Analyst</a>
 </blockquote>
-<p>Built on the <a href="https://www.binance.com/en/square/post/30100471193481" target="_blank">Base blockchain</a> (an Ethereum Layer 2 incubated by Coinbase), Mira leverages the security and scalability of a leading L2 to deliver its services efficiently. This strategic choice provides the necessary speed, low cost, and security for verifiable AI, with sub-second block times and seamless integration with the broader Ethereum ecosystem.</p>
+<p>Built on the <a href="https://www.binance.com/en/square/post/30100471193481" target="_blank">Base blockchain</a> (an Ethereum Layer 2 incubated by Coinbase), Mira leverages the security and scalability of a leading L2 to deliver its services efficiently.[[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEnSgpyPtZNF6YUhJmjWI7yrXCtxrC0rcVOqriH0HemWw1xJJ1gph7VspbDfeUv9kiLsN_FNrs2p4KcWdIYfPdgcyClWlw4QOWKBkpRvSU6dvX6qLBCc2AAiRfrVZFEN_V2r73BwZShjdWDMWwlb5j0s1e7emMjLdQ7zUynWUQixmhBLuL1j3VThRdqGJoEoIPg5S5EpN7MDQNanW8U4HMT7sLGXTAnm-e0sdK5_ptAK7F4mzst)] This strategic choice provides the necessary speed, low cost, and security for verifiable AI, with sub-second block times and seamless integration with the broader Ethereum ecosystem.</p>
 <h3 id="section-2-1">How Mira Works: A Deep Dive into the Verification Process</h3>
-<p>Mira&#39;s core innovation is a novel protocol that systematically verifies AI-generated content. The process is source-agnostic, meaning it can verify both AI-generated and human-generated content with the same rigorous standards. The workflow can be broken down into three key stages:</p>
+<p>Mira's core innovation is a novel protocol that systematically verifies AI-generated content. The process is source-agnostic, meaning it can verify both AI-generated and human-generated content with the same rigorous standards. The workflow can be broken down into three key stages:</p>
 <div class="infographic">
 <h3 class="infographic-title" id="section-2-2">Flowchart: The Mira Verification Workflow</h3>
 <div class="flowchart">
@@ -623,7 +677,7 @@ tr:nth-child(even) {
 <div class="flowchart-arrow">↓</div>
 <div class="flowchart-step">
 <h5>2. Claim Generation (Binarization)</h5>
-<p>Mira&#39;s protocol breaks the complex content down into discrete, independently verifiable claims, while preserving logical relationships.</p>
+<p>Mira's protocol breaks the complex content down into discrete, independently verifiable claims, while preserving logical relationships.</p>
 </div>
 <div class="flowchart-arrow">↓</div>
 <div class="flowchart-step">
@@ -633,7 +687,7 @@ tr:nth-child(even) {
 <div class="flowchart-arrow">↓</div>
 <div class="flowchart-step">
 <h5>4. Multi-Model Consensus</h5>
-<p>The verifier models process the claims and submit their results. Mira&#39;s consensus mechanism aggregates the results to determine the validity of each claim.</p>
+<p>The verifier models process the claims and submit their results. Mira's consensus mechanism aggregates the results to determine the validity of each claim.</p>
 </div>
 <div class="flowchart-arrow">↓</div>
 <div class="flowchart-step">
@@ -642,10 +696,10 @@ tr:nth-child(even) {
 </div>
 </div>
 </div>
-<p>Let&#39;s illustrate with a simple example from the <a href="https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide" target="_blank">Blocmates guide</a>. Consider the statement: <em>&#34;Arsenal is a club in London that has won three (3) UEFA Champions League titles.&#34;</em></p>
+<p>Let's illustrate with a simple example. Consider the statement: <em>&#34;Arsenal is a club in London that has won three (3) UEFA Champions League titles.&#34;</em></p>
 <ol>
 <li><strong>Transformation:</strong> The network breaks this into two claims:
-                    <ul>
+<ul>
 <li>Claim 1: &#34;Arsenal is a club in London.&#34;</li>
 <li>Claim 2: &#34;Arsenal has won three (3) UEFA Champions League titles.&#34;</li>
 </ul>
@@ -653,11 +707,11 @@ tr:nth-child(even) {
 <li><strong>Verification:</strong> These claims are sent to different verifier models. A sports history model would validate Claim 2 as false, while a geography model would validate Claim 1 as true.</li>
 <li><strong>Consensus &amp; Output:</strong> The network reaches a consensus that Claim 1 is valid and Claim 2 is invalid, returning a verified, corrected output to the user with a cryptographic proof of the process.</li>
 </ol>
-<p>This systematic approach, which reduces first-pass mistakes from over 30% to below 5%, is what allows Mira to deliver AI outputs with over 95% accuracy <a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" target="_blank">DePIN Scan</a>, <em data-ref-id="1986743146326052865" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052865" data-sk-source-text=","></em>.</p>
+<p>This systematic approach, which reduces first-pass mistakes from over 30% to below 5%, is what allows Mira to deliver AI outputs with over 95% accuracy.[[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFCSgJH_uXK4klFoEtI67ABE97yVAMdUe0hZLVxhbothBYRuAymBDfm4uLb4-YfM40VpA52IQPG1KS5M-h-cb5gnGIY6MJFRGOr6n1d4OSuXXzuOcce4IQqdEiuqtxE49Cl3ZPusIEYO-1Mj2EJHu3SVBFY08yZwqGFEqCf5S0kQFqm)]</p>
 <h3 id="section-2-3">The Economic Engine: Proof-of-Verification and Hybrid Security</h3>
-<p>Securing a decentralized verification network presents unique challenges. If verification is a simple multiple-choice question, what stops a malicious node from just guessing the answer for a chance at rewards without doing any computational work? Mira&#39;s economic security model brilliantly solves this with a hybrid consensus mechanism that combines Proof-of-Work (PoW) and Proof-of-Stake (PoS).</p>
+<p>Securing a decentralized verification network presents unique challenges. If verification is a simple multiple-choice question, what stops a malicious node from just guessing the answer for a chance at rewards without doing any computational work? Mira's economic security model brilliantly solves this with a hybrid consensus mechanism that combines Proof-of-Work (PoW) and Proof-of-Stake (PoS).[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFmmPRokAQhnWYQ4tDLL3awRcf1TfNW1xQikD60YkGNRko753EgU5TRFLMlkPn_2yeA_qBXCPoAijWeYaWSAcoPj-OkJB_jUKBPD9GDKWp5lYImOBolYBJ5zIfcPZK8pL9tLU09oWbErBridFTwQxNzcHq58j6y6zw3l6Qc_afD_-1DEgSOkeRHKMzTo30VfL5XHetv92_Bwm9RRkiMPx3IEB623FRdHcM5Mb4R5gFnVpc%3D)]</p>
 <div class="infographic">
-<h3 class="infographic-title" id="section-2-4">Infographic: Mira&#39;s Hybrid Consensus Model</h3>
+<h3 class="infographic-title" id="section-2-4">Infographic: Mira's Hybrid Consensus Model</h3>
 <div class="comparison-grid">
 <div class="comparison-card">
 <h5>Traditional Proof-of-Work (e.g., Bitcoin)</h5>
@@ -668,11 +722,11 @@ tr:nth-child(even) {
 </ul>
 </div>
 <div class="comparison-card">
-<h5>Mira&#39;s Proof-of-Verification (PoW + PoS)</h5>
+<h5>Mira's Proof-of-Verification (PoW + PoS)</h5>
 <ul>
 <li><strong>Proof-of-Work:</strong> The &#34;work&#34; is performing <strong>meaningful AI inference</strong> to verify claims. This is honest, useful computation.</li>
 <li><strong>Proof-of-Stake:</strong> To prevent guessing, node operators must <strong>stake MIRA tokens</strong>. If a node consistently deviates from consensus or provides random answers, its stake is <strong>slashed</strong> (penalized).</li>
-<li><strong>Result:</strong> This hybrid model makes malicious behavior economically irrational, ensuring that nodes are incentivized to perform honest and accurate verification.</li>
+<li><strong>Result:</strong> This hybrid model makes malicious behavior economically irrational, ensuring that nodes are incentivized to perform honest and accurate verification.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFmmPRokAQhnWYQ4tDLL3awRcf1TfNW1xQikD60YkGNRko753EgU5TRFLMlkPn_2yeA_qBXCPoAijWeYaWSAcoPj-OkJB_jUKBPD9GDKWp5lYImOBolYBJ5zIfcPZK8pL9tLU09oWbErBridFTwQxNzcHq58j6y6zw3l6Qc_afD_-1DEgSOkeRHKMzTo30VfL5XHetv92_Bwm9RRkiMPx3IEB623FRdHcM5Mb4R5gFnVpc%3D)]</li>
 </ul>
 </div>
 </div>
@@ -685,44 +739,38 @@ tr:nth-child(even) {
 </ol>
 <p>This creates a powerful flywheel: as the network grows, it generates more fees, which fund greater rewards, attracting more diverse and specialized nodes. This, in turn, improves the network&#39;s accuracy, cost, and latency, driving further adoption.</p>
 <h2 id="section-3">The MIRA Token: Fueling a Universe of Verifiable AI</h2>
-<p>The <strong>$MIRA</strong> token is the lifeblood of the Mira Network. It is an ERC-20 token on the Base blockchain that serves as the native currency for all economic activity, security, and governance within the ecosystem. With a fixed total supply of <strong>1 billion tokens</strong>, its design reflects a community-focused philosophy: &#34;the network belongs to those who use it, build on it, and secure it.&#34;</p>
+<p>The <strong>$MIRA</strong> token is the lifeblood of the Mira Network. It is an ERC-20 token on the Base blockchain that serves as the native currency for all economic activity, security, and governance within the ecosystem.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFmmPRokAQhnWYQ4tDLL3awRcf1TfNW1xQikD60YkGNRko753EgU5TRFLMlkPn_2yeA_qBXCPoAijWeYaWSAcoPj-OkJB_jUKBPD9GDKWp5lYImOBolYBJ5zIfcPZK8pL9tLU09oWbErBridFTwQxNzcHq58j6y6zw3l6Qc_afD_-1DEgSOkeRHKMzTo30VfL5XHetv92_Bwm9RRkiMPx3IEB623FRdHcM5Mb4R5gFnVpc%3D)][[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEnSgpyPtZNF6YUhJmjWI7yrXCtxrC0rcVOqriH0HemWw1xJJ1gph7VspbDfeUv9kiLsN_FNrs2p4KcWdIYfPdgcyClWlw4QOWKBkpRvSU6dvX6qLBCc2AAiRfrVZFEN_V2r73BwZShjdWDMWwlb5j0s1e7emMjLdQ7zUynWUQixmhBLuL1j3VThRdqGJoEoIPg5S5EpN7MDQNanW8U4HMT7sLGXTAnm-e0sdK5_ptAK7F4mzst)] With a fixed total supply of <strong>1 billion tokens</strong>, its design reflects a community-focused philosophy: &#34;the network belongs to those who use it, build on it, and secure it.&#34;[[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEnSgpyPtZNF6YUhJmjWI7yrXCtxrC0rcVOqriH0HemWw1xJJ1gph7VspbDfeUv9kiLsN_FNrs2p4KcWdIYfPdgcyClWlw4QOWKBkpRvSU6dvX6qLBCc2AAiRfrVZFEN_V2r73BwZShjdWDMWwlb5j0s1e7emMjLdQ7zUynWUQixmhBLuL1j3VThRdqGJoEoIPg5S5EpN7MDQNanW8U4HMT7sLGXTAnm-e0sdK5_ptAK7F4mzst)][[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</p>
 <h3 id="section-3-1">Token Utility</h3>
-<p>The $MIRA token has several critical functions:</p>
+<p>The $MIRA token has several critical functions:[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</p>
 <ul>
-<li><strong>Staking and Network Security:</strong> Node operators must stake $MIRA to participate in the verification process. This economic stake serves as collateral, which can be slashed for malicious or lazy behavior, thus securing the network.</li>
-<li><strong>Governance:</strong> $MIRA holders can exercise voting privileges on protocol evolution, including technical upgrades, fee structures, and ecosystem design parameters, ensuring decentralized control.</li>
-<li><strong>Payment for Services:</strong> Network fees for AI verification are paid in $MIRA. This includes access to the core APIs like `Verify` and `Verified Generate`.</li>
-<li><strong>Ecosystem Trading Pair:</strong> $MIRA serves as the foundational trading pair for all ecosystem tokens, creating a consistent source of demand as new applications are built on the network.</li>
+<li><strong>Staking and Network Security:</strong> Node operators must stake $MIRA to participate in the verification process.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)] This economic stake serves as collateral, which can be slashed for malicious or lazy behavior, thus securing the network.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFmmPRokAQhnWYQ4tDLL3awRcf1TfNW1xQikD60YkGNRko753EgU5TRFLMlkPn_2yeA_qBXCPoAijWeYaWSAcoPj-OkJB_jUKBPD9GDKWp5lYImOBolYBJ5zIfcPZK8pL9tLU09oWbErBridFTwQxNzcHq58j6y6zw3l6Qc_afD_-1DEgSOkeRHKMzTo30VfL5XHetv92_Bwm9RRkiMPx3IEB623FRdHcM5Mb4R5gFnVpc%3D)]</li>
+<li><strong>Governance:</strong> $MIRA holders can exercise voting privileges on protocol evolution, including technical upgrades, fee structures, and ecosystem design parameters, ensuring decentralized control.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)][[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH1Tv9Oy0xCcqT06igUS8CzMzdr7SkOX_RTIUU-oKDgdEigm69kSsMs9BeQKhiaprs51_Brq2bKSV3UHYyJe94cb5PEYykg2U5c-OgW69pzyzXMaz3IqQ4UXEHJ1DQxNWVOVtm42G0%3D)]</li>
+<li><strong>Payment for Services:</strong> Network fees for AI verification are paid in $MIRA.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)] This includes access to the core APIs like `Verify` and `Verified Generate`.</li>
+<li><strong>Ecosystem Trading Pair:</strong> $MIRA serves as the foundational trading pair for all ecosystem tokens, creating a consistent source of demand as new applications are built on the network.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFmmPRokAQhnWYQ4tDLL3awRcf1TfNW1xQikD60YkGNRko753EgU5TRFLMlkPn_2yeA_qBXCPoAijWeYaWSAcoPj-OkJB_jUKBPD9GDKWp5lYImOBolYBJ5zIfcPZK8pL9tLU09oWbErBridFTwQxNzcHq58j6y6zw3l6Qc_afD_-1DEgSOkeRHKMzTo30VfL5XHetv92_Bwm9RRkiMPx3IEB623FRdHcM5Mb4R5gFnVpc%3D)]</li>
 </ul>
 <h3 id="section-3-2">Tokenomics and Distribution</h3>
-<p>The distribution of the 1 billion $MIRA tokens is strategically designed to foster long-term, sustainable growth and align the incentives of all participants. The initial circulating supply at the Token Generation Event (TGE) on September 26, 2025, was 19.12% <em data-ref-id="1986743146326052866" data-sk-source-text="The distribution of the 1 billion $MIRA tokens is strategically designed to foster long-term, sustainable growth and align the incentives of all participants. The initial circulating supply at the Token Generation Event (TGE) on September 26, 2025, was 19.12%" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052866"></em>.</p>
+<p>The distribution of the 1 billion $MIRA tokens is strategically designed to foster long-term, sustainable growth and align the incentives of all participants.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)] The initial circulating supply at the Token Generation Event (TGE) on September 26, 2025, was 19.12%.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFmmPRokAQhnWYQ4tDLL3awRcf1TfNW1xQikD60YkGNRko753EgU5TRFLMlkPn_2yeA_qBXCPoAijWeYaWSAcoPj-OkJB_jUKBPD9GDKWp5lYImOBolYBJ5zIfcPZK8pL9tLU09oWbErBridFTwQxNzcHq58j6y6zw3l6Qc_afD_-1DEgSOkeRHKMzTo30VfL5XHetv92_Bwm9RRkiMPx3IEB623FRdHcM5Mb4R5gFnVpc%3D)][[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</p>
 <div class="infographic">
 <h3 class="infographic-title" id="section-3-3">MIRA Token Distribution (1 Billion Total Supply)</h3>
 <div class="token-distribution-container">
 <div class="token-chart" id="tokenomics-chart"></div>
 <div class="token-legend">
 <ul>
-<li><span class="legend-color-box" style="background-color: #5470c6;"></span><strong>Ecosystem Reserve (26%):</strong> For developer grants, partnerships, and growth incentives.</li>
-<li><span class="legend-color-box" style="background-color: #91cc75;"></span><strong>Core Contributors (20%):</strong> For current and future team members, ensuring long-term commitment.</li>
-<li><span class="legend-color-box" style="background-color: #fac858;"></span><strong>Future Node Rewards (16%):</strong> Programmatic emissions to validators for securing the network.</li>
-<li><span class="legend-color-box" style="background-color: #ee6666;"></span><strong>Foundation (15%):</strong> For protocol development, research, and treasury reserves.</li>
-<li><span class="legend-color-box" style="background-color: #73c0de;"></span><strong>Early Investors (14%):</strong> Strategic partners who provided early capital.</li>
-<li><span class="legend-color-box" style="background-color: #3ba272;"></span><strong>Initial Airdrop (6%):</strong> Rewarding early ecosystem participants and community members.</li>
-<li><span class="legend-color-box" style="background-color: #fc8452;"></span><strong>Liquidity Incentives (3%):</strong> For market making and exchange listings.</li>
+<li><span class="legend-color-box" style="background-color: #5470c6;"></span><strong>Ecosystem Reserve (26%):</strong> For developer grants, partnerships, and growth incentives.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</li>
+<li><span class="legend-color-box" style="background-color: #91cc75;"></span><strong>Core Contributors (20%):</strong> For current and future team members, ensuring long-term commitment.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</li>
+<li><span class="legend-color-box" style="background-color: #fac858;"></span><strong>Future Node Rewards (16%):</strong> Programmatic emissions to validators for securing the network.[[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEnSgpyPtZNF6YUhJmjWI7yrXCtxrC0rcVOqriH0HemWw1xJJ1gph7VspbDfeUv9kiLsN_FNrs2p4KcWdIYfPdgcyClWlw4QOWKBkpRvSU6dvX6qLBCc2AAiRfrVZFEN_V2r73BwZShjdWDMWwlb5j0s1e7emMjLdQ7zUynWUQixmhBLuL1j3VThRdqGJoEoIPg5S5EpN7MDQNanW8U4HMT7sLGXTAnm-e0sdK5_ptAK7F4mzst)][[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</li>
+<li><span class="legend-color-box" style="background-color: #ee6666;"></span><strong>Foundation (15%):</strong> For protocol development, research, and treasury reserves.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</li>
+<li><span class="legend-color-box" style="background-color: #73c0de;"></span><strong>Early Investors (14%):</strong> Strategic partners who provided early capital.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</li>
+<li><span class="legend-color-box" style="background-color: #3ba272;"></span><strong>Initial Airdrop (6%):</strong> Rewarding early ecosystem participants and community members.[[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEnSgpyPtZNF6YUhJmjWI7yrXCtxrC0rcVOqriH0HemWw1xJJ1gph7VspbDfeUv9kiLsN_FNrs2p4KcWdIYfPdgcyClWlw4QOWKBkpRvSU6dvX6qLBCc2AAiRfrVZFEN_V2r73BwZShjdWDMWwlb5j0s1e7emMjLdQ7zUynWUQixmhBLuL1j3VThRdqGJoEoIPg5S5EpN7MDQNanW8U4HMT7sLGXTAnm-e0sdK5_ptAK7F4mzst)][[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</li>
+<li><span class="legend-color-box" style="background-color: #fc8452;"></span><strong>Liquidity Incentives (3%):</strong> For market making and exchange listings.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</li>
 </ul>
 </div>
 </div>
 </div>
 <h3 id="section-3-4">Vesting and Long-Term Alignment</h3>
-<p>To prevent market volatility and ensure all stakeholders are aligned with the project&#39;s long-term vision, the token allocation for core contributors and early investors is subject to strict vesting schedules. According to multiple sources, including <a href="https://www.mexc.com/learn/article/what-is-mira-network-mira-coin-complete-guide-to-the-ai-verification-crypto-token/1" target="_blank">MEXC Learn</a> and <a href="https://x.com/klok_app?lang=en" target="_blank">Klok&#39;s official communications</a>:</p>
-<ul>
-<li><strong>Core Contributors (20%):</strong> 36-month vesting schedule with a 12-month cliff.</li>
-<li><strong>Early Investors (14%):</strong> 24-month vesting schedule with a 12-month cliff.</li>
-<li><strong>Foundation (15%):</strong> 36-month vesting with a 6-month cliff.</li>
-</ul>
-<p>This structure ensures that the team and investors are committed for years, not months, fostering stability and confidence in the project&#39;s future. The circulating supply is projected to reach approximately 33% after one year, 61% after two years, and 100% after seven years.</p>
+<p>To prevent market volatility and ensure all stakeholders are aligned with the project's long-term vision, the token allocation for core contributors and early investors is subject to strict vesting schedules. This structure ensures that the team and investors are committed for years, not months, fostering stability and confidence in the project's future. The circulating supply is projected to reach approximately 33% after one year, 61% after two years, and 100% after seven years.</p>
 <h2 id="section-4">The Mira Ecosystem: A Universe of Trust in Action</h2>
-<p>A protocol is only as strong as the ecosystem built around it. Mira is rapidly cultivating a vibrant network of partners, developers, and applications that leverage its verification infrastructure to deliver next-generation AI services. In May 2025, Mira released an ecosystem map showcasing over <strong>25 partners</strong> across six vertical fields, demonstrating its growing influence <em data-ref-id="1986743146326052867" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052867" data-sk-source-text="A protocol is only as strong as the ecosystem built around it. Mira is rapidly cultivating a vibrant network of partners, developers, and applications that leverage its verification infrastructure to deliver next-generation AI services. In May 2025, Mira released an ecosystem map showcasing over 25 partners across six vertical fields, demonstrating its growing influence"></em>.</p>
+<p>A protocol is only as strong as the ecosystem built around it. Mira is rapidly cultivating a vibrant network of partners, developers, and applications that leverage its verification infrastructure to deliver next-generation AI services. In May 2025, Mira released an ecosystem map showcasing over <strong>25 partners</strong> across six vertical fields, demonstrating its growing influence.</p>
 <div class="infographic">
 <h3 class="infographic-title" id="section-4-1">Infographic: The Mira Ecosystem Map</h3>
 <div class="ecosystem-map">
@@ -759,13 +807,13 @@ tr:nth-child(even) {
 </div>
 <h3 id="section-4-2">Key Partnerships and Integrations</h3>
 <ul>
-<li><strong>io.net:</strong> This strategic partnership provides Mira with access to a decentralized GPU infrastructure. As noted by <a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" target="_blank">DePIN Scan</a>, this collaboration enhances Mira&#39;s operations by reducing costs and latency, and it supports Mira&#39;s Node Delegator Program, which allows community members to contribute GPU resources for network rewards.</li>
-<li><strong>Irys (formerly Bundlr Network):</strong> Mira&#39;s integration with Irys provides a solution for permanent, cost-effective data storage. This is crucial for storing the vast streams of data from verification operations and cryptographic proofs, with Irys&#39;s &#34;at cost&#34; pricing model aiming to reduce storage costs by up to 40% <em data-ref-id="1986743146326052868" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052868" data-sk-source-text="Irys (formerly Bundlr Network): Mira&amp;#39;s integration with Irys provides a solution for permanent, cost-effective data storage. This is crucial for storing the vast streams of data from verification operations and cryptographic proofs, with Irys&amp;#39;s &amp;#34;at cost&amp;#34; pricing model aiming to reduce storage costs by up to 40%"></em>.</li>
-<li><strong>Kernel (BNB Chain):</strong> As Kernel&#39;s official AI coprocessor, Mira&#39;s Dynamic Validator Network (DVN) is set to establish a new standard for trustless AI execution within the massive BNB ecosystem, opening the door to a huge new user base <em data-ref-id="1986743146326052869" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052869" data-sk-source-text="Kernel (BNB Chain): As Kernel&amp;#39;s official AI coprocessor, Mira&amp;#39;s Dynamic Validator Network (DVN) is set to establish a new standard for trustless AI execution within the massive BNB ecosystem, opening the door to a huge new user base"></em>.</li>
+<li><strong>io.net:</strong> This strategic partnership provides Mira with access to a decentralized GPU infrastructure. This collaboration enhances Mira's operations by reducing costs and latency, and it supports Mira's Node Delegator Program, which allows community members to contribute GPU resources for network rewards.[[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFCSgJH_uXK4klFoEtI67ABE97yVAMdUe0hZLVxhbothBYRuAymBDfm4uLb4-YfM40VpA52IQPG1KS5M-h-cb5gnGIY6MJFRGOr6n1d4OSuXXzuOcce4IQqdEiuqtxE49Cl3ZPusIEYO-1Mj2EJHu3SVBFY08yZwqGFEqCf5S0kQFqm)][[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFfaNv5Wq02uKisVJRRXRIHZFNPwrJSFayDKqFhLn9jbYc6RdoztCGl3Q1uhF3zOeH9iR_FoK-f3h4wZuIK2Ay5z_tj47NncxQD_v21XKuuMSOG-J9huE-08iXGzBe5Z0FcOfkxVWxFqVSAF2X_PcpKAM9jWyRq2hVHZavcHNusgHU7bsfzB26gpdmYAMD8wfO3ToZG40XJToMvzbOhtg%3D%3D)]</li>
+<li><strong>Irys (formerly Bundlr Network):</strong> Mira's integration with Irys provides a solution for permanent, cost-effective data storage. This is crucial for storing the vast streams of data from verification operations and cryptographic proofs, with Irys's &#34;at cost&#34; pricing model aiming to reduce storage costs by up to 40%.</li>
+<li><strong>KGeN:</strong> In February 2025, Mira partnered with the decentralized gamer network KGeN to create an augmented gaming Large Language Model (LLM) that will allow developers to build and deploy AI agents in games.[[7](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEpw3ZU_OfURWTtjNv25Brs_u-CUn_Ev8mYnuZRYDHWTY510jiaAkZf6SXIj3vSRZQChEZZY6mol3_wHrHNQZ4uWs8214nvCjmjYqbmORr7eXkMRCoAItqkC2hz7pZDS76QB7iqv_R7wbTTHqf_mQAFcl_pRAzUH2G_uSnvJpE8-5KZfH09lwB8T__tStru9RB1)]</li>
 </ul>
 <h3 id="section-4-3">Flagship Application: Klok AI</h3>
-<p>The most prominent example of Mira&#39;s technology in action is <strong>Klok</strong>, a multi-model AI chat application built on the Mira Network. Klok leverages Mira&#39;s infrastructure to provide verified, reliable answers by having top-tier LLMs like GPT-4o, DeepSeek, and Llama 3 collaboratively verify prompts.</p>
-<p>Klok is also the primary vehicle for community engagement through the <strong>Mira Points program</strong>. Users can earn points by interacting with the Klok app, which are expected to play a role in future rewards and airdrops, driving early adoption and network participation <em data-ref-id="1986743146326052870" data-sk-source-text="Klok is also the primary vehicle for community engagement through the Mira Points program . Users can earn points by interacting with the Klok app, which are expected to play a role in future rewards and airdrops, driving early adoption and network participation" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052870"></em>.</p>
+<p>The most prominent example of Mira's technology in action is <strong>Klok</strong>, a multi-model AI chat application built on the Mira Network.[[8](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHLIfDPlmsbGLsOiTwc6ZRKtu-VFbDF1okhKUtWLHpn8T1-eYJsFM98aYTb_M5cRGVSXt6rO5Jf2_pu-Bl_jtB9QpMOJzGgHQkWt-kP3gfqiQtlUfE%3D)][[9](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFG5_To4cEHW0jG8kSqtH9OIWJx2uMtvJC6VeL1_2oLjqbX4IxTNXuWdKgGqkWbDlxxWdoMiaaI6nmmVnUEG6OOXgm_3pzcxhpFBh4-8TJFbkQ0BrxW4oNgTyQNU1R5WNfj86CkEe1_KYI%3D)][[10](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFRH6zsINKBjl8OJufFRfXqg4RTf21_5KghEI9I74vKNjH-0kNsMgPM9ILX68wskUcKF8gUjDguS2RsSgQIP4zjwHTSltOf2aTI_s4_C6zQ2rMuoOeGJMwtBzdMylpTo0bgGsxJnscwUQ%3D%3D)] Klok leverages Mira's infrastructure to provide verified, reliable answers by having top-tier LLMs like GPT-4o, DeepSeek, and Llama 3 collaboratively verify prompts.</p>
+<p>Klok is also the primary vehicle for community engagement through the <strong>Mira Points program</strong>. Users can earn points by interacting with the Klok app, which are expected to play a role in future rewards and airdrops, driving early adoption and network participation.[[8](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHLIfDPlmsbGLsOiTwc6ZRKtu-VFbDF1okhKUtWLHpn8T1-eYJsFM98aYTb_M5cRGVSXt6rO5Jf2_pu-Bl_jtB9QpMOJzGgHQkWt-kP3gfqiQtlUfE%3D)][[10](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFRH6zsINKBjl8OJufFRfXqg4RTf21_5KghEI9I74vKNjH-0kNsMgPM9ILX68wskUcKF8gUjDguS2RsSgQIP4zjwHTSltOf2aTI_s4_C6zQ2rMuoOeGJMwtBzdMylpTo0bgGsxJnscwUQ%3D%3D)][[11](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG8qY2edGn0X-eYVL_ZNjk8_g-14cK01surYujo6ObW1CfPkQvnfacc06Fo7UWSqKFKqa8Ya4jHxWsF8nPg7ZjVYe0jGfQl_01wwhwO2tqv3gjwzrJDIYeQ-H_ou2D7FNPT5GABPZlHAtrJbnoJZu9A3b_m9B2y1mWdcoVg2MiGugZoKNRP8AQ7oSbVS8zf4SAt_x02sgDOw2Y%3D)]</p>
 <h3 id="section-4-4">Empowering Developers with the Mira SDK</h3>
 <p>Mira is designed to be developer-first. The <strong>Mira Network SDK</strong> provides a unified, OpenAI-compatible API that allows developers to seamlessly integrate multiple language models into their applications. This abstracts away the complexity of managing different APIs and provides built-in capabilities for smart routing, load balancing, and error handling.</p>
 <div class="infographic">
@@ -808,24 +856,24 @@ tr:nth-child(even) {
 
 </tbody></table>
 </div>
-<p style="text-align:center; margin-top:20px; font-style:italic; color: #8b949e;">Source: <a href="https://docs.mira.network/network/get-started/introduction" target="_blank">Mira Network Documentation</a></p>
+<p style="text-align:center; margin-top:20px; font-style:italic; color: #6c757d;">Source: <a href="https://docs.mira.network/network/get-started/introduction" target="_blank">Mira Network Documentation</a></p>
 </div>
-<p>This powerful toolkit dramatically reduces development time and allows builders to focus on creating unique user experiences, rather than wrestling with backend infrastructure. The testnet already offers a suite of APIs, including `Generate`, `Verify`, and the powerful `Verified Generate`, which delivers outputs with 95%+ accuracy <em data-ref-id="1986743146326052871" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052871" data-sk-source-text="This powerful toolkit dramatically reduces development time and allows builders to focus on creating unique user experiences, rather than wrestling with backend infrastructure. The testnet already offers a suite of APIs, including `Generate`, `Verify`, and the powerful `Verified Generate`, which delivers outputs with 95%+ accuracy"></em>.</p>
-<h2 id="section-5">Mira&#39;s Roadmap: The Path to a Fully Autonomous Future</h2>
-<p>Mira&#39;s vision extends far beyond its current capabilities. The project&#39;s roadmap outlines a clear path toward creating a comprehensive infrastructure for fully autonomous AI systems, enabling agents to discover each other, transact value, and coordinate complex tasks with verifiable trust.</p>
+<p>This powerful toolkit dramatically reduces development time and allows builders to focus on creating unique user experiences, rather than wrestling with backend infrastructure. The testnet already offers a suite of APIs, including `Generate`, `Verify`, and the powerful `Verified Generate`, which delivers outputs with 95%+ accuracy.</p>
+<h2 id="section-5">Mira's Roadmap: The Path to a Fully Autonomous Future</h2>
+<p>Mira's vision extends far beyond its current capabilities. The project's roadmap outlines a clear path toward creating a comprehensive infrastructure for fully autonomous AI systems, enabling agents to discover each other, transact value, and coordinate complex tasks with verifiable trust.[[12](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHxswQsiyX3EQj0skdbNb8uSWWwn3JbY4YDPjQxoFe5lQCLFrEwkx8nSrYHuvs1mtfwrLgwShyHi393ho__MQLu5qAAe4-pLq0MHbgYgi0TxNvyZfjnlIv9uen4j1ZiE1e_DBWtYmI4N7OpzKiSEqqS5b-1ihdifaqbwS9LiA1dYkrmDg%3D%3D)]</p>
 <div class="infographic">
 <h3 class="infographic-title" id="section-5-1">Mira Network Roadmap</h3>
 <div class="roadmap-timeline">
 <div class="roadmap-item">
 <div class="roadmap-content">
 <h5>September 26, 2025</h5>
-<p><strong>Mainnet Launch &amp; TGE.</strong> Activated the mainnet, enabling staking, governance, and verifiable AI services. The $MIRA token was listed on major exchanges like KuCoin, MEXC, and Bitget.</p>
+<p><strong>Mainnet Launch &amp; TGE.</strong> Activated the mainnet, enabling staking, governance, and verifiable AI services. The $MIRA token was listed on major exchanges like KuCoin, MEXC, and Bitget.[[13](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFd1eOFOotOPQ7X6OxmHS178JNg7RRA22XEJMjHlvSiGU3zI2tyoEIk2vtvneAQmcL-nDvtmzomyHPhn7gyWL2kQWxiBOKXVTXYC-zxQLlU--WWNvcYWa3TqDLsaPlLRC1All_uAgumdwviC6XM)]</p>
 </div>
 </div>
 <div class="roadmap-item">
 <div class="roadmap-content">
 <h5>Q4 2025</h5>
-<p><strong>Full Klok Verification Rollout.</strong> Klok, Mira&#39;s flagship chat app, will fully integrate decentralized verification, showcasing the network&#39;s capabilities to its millions of users.</p>
+<p><strong>Full Klok Verification Rollout.</strong> Klok, Mira's flagship chat app, will fully integrate decentralized verification, showcasing the network's capabilities to its millions of users.</p>
 </div>
 </div>
 <div class="roadmap-item">
@@ -837,20 +885,20 @@ tr:nth-child(even) {
 <div class="roadmap-item">
 <div class="roadmap-content">
 <h5>2026 &amp; Beyond</h5>
-<p><strong>Ecosystem Expansion &amp; Autonomous Systems.</strong> Focus on expanding partnerships, growing the developer ecosystem, and building out the full protocol stack for autonomous AI agents, including identity, memory, and payment rails.</p>
+<p><strong>Ecosystem Expansion &amp; Autonomous Systems.</strong> Focus on expanding partnerships, growing the developer ecosystem, and building out the full protocol stack for autonomous AI agents, including identity, memory, and payment rails.[[12](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHxswQsiyX3EQj0skdbNb8uSWWwn3JbY4YDPjQxoFe5lQCLFrEwkx8nSrYHuvs1mtfwrLgwShyHi393ho__MQLu5qAAe4-pLq0MHbgYgi0TxNvyZfjnlIv9uen4j1ZiE1e_DBWtYmI4N7OpzKiSEqqS5b-1ihdifaqbwS9LiA1dYkrmDg%3D%3D)]</p>
 </div>
 </div>
 </div>
 </div>
-<h2 id="section-6">The 2025 Crypto Landscape: A Perfect Storm for Mira&#39;s Growth</h2>
-<p>Mira&#39;s launch is perfectly timed with several powerful macro trends shaping the 2025 crypto and tech markets. After a period of volatility, the crypto market has entered a new phase of maturation and institutional adoption. The total crypto market cap crossed the <strong>$4 trillion threshold</strong> for the first time in 2025, with stablecoins processing an astonishing $46 trillion in annual transaction volume, rivaling traditional payment networks like Visa <em data-ref-id="1986743146326052872" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052872" data-sk-source-text="Mira&amp;#39;s launch is perfectly timed with several powerful macro trends shaping the 2025 crypto and tech markets. After a period of volatility, the crypto market has entered a new phase of maturation and institutional adoption. The total crypto market cap crossed the $4 trillion threshold for the first time in 2025, with stablecoins processing an astonishing $46 trillion in annual transaction volume, rivaling traditional payment networks like Visa"></em>.</p>
+<h2 id="section-6">The 2025 Crypto Landscape: A Perfect Storm for Mira's Growth</h2>
+<p>Mira's launch is perfectly timed with several powerful macro trends shaping the 2025 crypto and tech markets. After a period of volatility, the crypto market has entered a new phase of maturation and institutional adoption. The total crypto market cap crossed the <strong>$4 trillion threshold</strong> for the first time in 2025, with stablecoins processing an astonishing $46 trillion in annual transaction volume, rivaling traditional payment networks like Visa.</p>
 <div class="chart-container" id="market-cap-chart"></div>
 <p class="caption" style="text-align:center;">The AI token market has seen explosive growth, reflecting intense investor interest in the convergence of AI and crypto. Data source: <a href="https://explodingtopics.com/blog/cryptocurrency-trends" target="_blank">Exploding Topics</a>.</p>
 <p>This institutional embrace, coupled with a more constructive regulatory environment in the US, has created fertile ground for projects with real-world utility. As noted in the <a href="https://www.coinbase.com/institutional/research-insights/research/market-intelligence/guide-to-crypto-markets-q1-2025" target="_blank">Coinbase Q1 2025 Guide to Crypto Markets</a>, investors are increasingly focused on projects that bridge the gap between crypto and traditional industries. Mira, with its clear value proposition of solving a critical problem for the multi-trillion-dollar AI industry, is perfectly positioned to capture this wave of interest.</p>
 <h2 id="section-7">Conclusion: The Dawn of Verifiable Intelligence</h2>
 <p>The rapid proliferation of AI has created a world of immense opportunity, but also one of profound risk. Without a mechanism to ensure the truthfulness of AI-generated information, we risk building our future on a foundation of digital quicksand. Mira Network is not just another AI crypto project; it is the critical infrastructure required to avert this crisis.</p>
 <p>By masterfully combining decentralized consensus, a robust crypto-economic model, and a developer-friendly platform, Mira is creating the trust layer for the next generation of the internet. It is building a future where AI can be relied upon for high-stakes, autonomous tasks—a future where intelligence is not just artificial, but verifiable.</p>
-<p>Whether you are a developer looking to build the next great AI application, an investor seeking projects with fundamental value, or simply a citizen of the digital world concerned with the integrity of information, Mira&#39;s mission is your mission. The journey to a verifiable AI future has begun.</p>
+<p>Whether you are a developer looking to build the next great AI application, an investor seeking projects with fundamental value, or simply a citizen of the digital world concerned with the integrity of information, Mira's mission is your mission. The journey to a verifiable AI future has begun.</p>
 <div class="cta-box">
 <h3 id="section-7-1">Join the Mira Revolution</h3>
 <p>The future of AI is being built today. Become part of the movement creating a more trustworthy and reliable digital world.</p>
@@ -860,387 +908,422 @@ tr:nth-child(even) {
 <a class="cta-button" href="https://docs.mira.network/" target="_blank">Read the Docs</a>
 </div>
 <div class="reference-container">
-			<div class="reference-section">
-				<h3 class="reference-title">Reference</h3>
-				<div class="reference-list">
-					
-					<div class="reference-item">
-						<span class="reference-number">[1]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Latest Mira News - (MIRA) Future Outlook, Trends &amp; Market Insights</span>
-									
-							</div>
-							<a href="https://coinmarketcap.com/cmc-ai/mira-network/latest-updates/" class="reference-link" target="_blank">
-								https://coinmarketcap.com/cmc-ai/mira-network/latest-updates/
-							</a>
+<div class="reference-section">
+<h3 class="reference-title">Reference</h3>
+<div class="reference-list">
+
+code
+Code
+download
+content_copy
+expand_less
+<div class="reference-item">
+					<span class="reference-number">[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGM0vnavFrTYx0IWq9E5mTqTm3gzyLGVLrwi0zLoJmUVhAp_0cOnYwAGERqGfjJqyn7T6E1JdNnmlYJuuoAblnfk7NrefKz8IMoSZnKEQ_iNlSLKFlOIsOt5SFUbyFjw9vueLsQQMg0DO80r2nW3HYXVwdAM5-k6B7VrVF4A_0eXoejIOBg7-jxUb3WfSSGjbJG-StygSZi)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Mira Unveils MIRA Tokenomics on Base Network</span>
+								
 						</div>
+						<a href="https://phemex.com/news/article/mira-unveils-tokenomics-for-mira-token-on-base-network-20850" class="reference-link" target="_blank">
+							https://phemex.com/news/article/mira-unveils-tokenomics-for-mira-token-on-base-network-20850
+						</a>
 					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[2]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">What is MIRA Network (MIRA Coin)? Complete Guide to ...</span>
-									
-							</div>
-							<a href="https://www.mexc.com/learn/article/what-is-mira-network-mira-coin-complete-guide-to-the-ai-verification-crypto-token/1" class="reference-link" target="_blank">
-								https://www.mexc.com/learn/article/what-is-mira-network-mira-coin-complete-guide-to-the-ai-verification-crypto-token/1
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[3]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Mira Unveils MIRA Tokenomics on Base Network</span>
-									
-							</div>
-							<a href="https://phemex.com/news/article/mira-unveils-tokenomics-for-mira-token-on-base-network-20850" class="reference-link" target="_blank">
-								https://phemex.com/news/article/mira-unveils-tokenomics-for-mira-token-on-base-network-20850
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[4]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Decentralized AI Infrastructure Mira Releases Ecosystem ...</span>
-									
-							</div>
-							<a href="https://www.bitget.com/news/detail/12560604784207" class="reference-link" target="_blank">
-								https://www.bitget.com/news/detail/12560604784207
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[5]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Writing - Mira Network</span>
-									
-							</div>
-							<a href="https://mira.network/writing" class="reference-link" target="_blank">
-								https://mira.network/writing
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[6]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Potential Klok Airdrop » How to be eligible?</span>
-									
-							</div>
-							<a href="https://airdrops.io/klok/" class="reference-link" target="_blank">
-								https://airdrops.io/klok/
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[7]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Mira Network Launches highly anticipated next Gen Suite ...</span>
-									
-							</div>
-							<a href="https://thedefiant.io/news/defi/mira-network-launches-highly-anticipated-next-gen-suite-of-api-s-and-testnet-for-verified-ai" class="reference-link" target="_blank">
-								https://thedefiant.io/news/defi/mira-network-launches-highly-anticipated-next-gen-suite-of-api-s-and-testnet-for-verified-ai
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[8]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">State of Crypto 2025: The year crypto went mainstream</span>
-									
-							</div>
-							<a href="https://a16zcrypto.com/posts/article/state-of-crypto-report-2025/" class="reference-link" target="_blank">
-								https://a16zcrypto.com/posts/article/state-of-crypto-report-2025/
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[9]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Mira Network: Infrastructure for AI You Can Trust - Blocmates</span>
-									
-							</div>
-							<a href="https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide" class="reference-link" target="_blank">
-								https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[10]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">[PDF] Mira: A Decentralized Network for Trustless AI Output Verification</span>
-									
-							</div>
-							<a href="https://mira.network/research/mira-whitepaper.pdf" class="reference-link" target="_blank">
-								https://mira.network/research/mira-whitepaper.pdf
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[11]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Top 7 Cryptocurrency Trends (2025 and Beyond)</span>
-									
-							</div>
-							<a href="https://explodingtopics.com/blog/cryptocurrency-trends" class="reference-link" target="_blank">
-								https://explodingtopics.com/blog/cryptocurrency-trends
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[12]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Guide to Crypto Markets: Q1 2025</span>
-									
-							</div>
-							<a href="https://www.coinbase.com/institutional/research-insights/research/market-intelligence/guide-to-crypto-markets-q1-2025" class="reference-link" target="_blank">
-								https://www.coinbase.com/institutional/research-insights/research/market-intelligence/guide-to-crypto-markets-q1-2025
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[13]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">io.net and Mira Network Forge Partnership to Enhance AI Reliability</span>
-									
-							</div>
-							<a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" class="reference-link" target="_blank">
-								https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[14]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">MIRA&#39;s Market Debut and Growth Potential: Early-Mover Advantage ...</span>
-									
-							</div>
-							<a href="https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/" class="reference-link" target="_blank">
-								https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[15]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Introduction - Mira Network</span>
-									
-							</div>
-							<a href="https://docs.mira.network/network/get-started/introduction" class="reference-link" target="_blank">
-								https://docs.mira.network/network/get-started/introduction
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[16]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">MIRA: THE TRUST LAYER FOR AI. How This Project Is ...</span>
-									
-							</div>
-							<a href="https://medium.com/@jenniferchukwuma2020/mira-the-trust-layer-for-ai-bae204e44672" class="reference-link" target="_blank">
-								https://medium.com/@jenniferchukwuma2020/mira-the-trust-layer-for-ai-bae204e44672
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[17]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Mira Network</span>
-									
-							</div>
-							<a href="https://mira.network/" class="reference-link" target="_blank">
-								https://mira.network/
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[18]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Is the next $MIRA about to ignite the Base ecosystem?</span>
-									
-							</div>
-							<a href="https://www.binance.com/en/square/post/30100471193481" class="reference-link" target="_blank">
-								https://www.binance.com/en/square/post/30100471193481
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[19]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Klok (@klok_app) / Posts / X</span>
-									
-							</div>
-							<a href="https://x.com/klok_app?lang=en" class="reference-link" target="_blank">
-								https://x.com/klok_app?lang=en
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[20]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Blockchain and Digital Assets Outlook 2025 - BPM</span>
-									
-							</div>
-							<a href="https://www.bpm.com/insights/blockchain-and-digital-assets-outlook-2025/" class="reference-link" target="_blank">
-								https://www.bpm.com/insights/blockchain-and-digital-assets-outlook-2025/
-							</a>
-						</div>
-					</div>
-					
 				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[12](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHxswQsiyX3EQj0skdbNb8uSWWwn3JbY4YDPjQxoFe5lQCLFrEwkx8nSrYHuvs1mtfwrLgwShyHi393ho__MQLu5qAAe4-pLq0MHbgYgi0TxNvyZfjnlIv9uen4j1ZiE1e_DBWtYmI4N7OpzKiSEqqS5b-1ihdifaqbwS9LiA1dYkrmDg%3D%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Mira Network: A New Way to Build Trust in Artificial Intelligenc In 2025 - Free Crypto Airdrops</span>
+								
+						</div>
+						<a href="https://airdrop-king.io/en/blog/mira-network/" class="reference-link" target="_blank">
+							https://airdrop-king.io/en/blog/mira-network/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[14](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGUTu_RmLdID1Fn7stWRPhljlsxGjNdHGckKDk59S4HorLNEyiaWdM7TdBhc8zmEt5gjvNdYMCERKoZF6MHv0HqaUVcYIGCKL6ivhsd3nwTt4WpVh6mvOYoGIV9wKjdKxbgtw%3D%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Mira Network token sale analytics and information, private/seed sale price, tokenomics</span>
+								
+						</div>
+						<a href="https://icoanalytics.org/projects/mira-network/" class="reference-link" target="_blank">
+							https://icoanalytics.org/projects/mira-network/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[15](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH-PzAKcsYYfXH6_hUJr2NW87BJ_-_9_lPwEJnMhHE99N4WRgNUrJvU9t8QK9epAATQr-S_rAKX84_1Dc33_UJT3PoeRaGLkFos85bSlOBiuVOzm52Ujg%3D%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">MIRA Network</span>
+								
+						</div>
+						<a href="https://www.mira-20.com/" class="reference-link" target="_blank">
+							https://www.mira-20.com/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH1Tv9Oy0xCcqT06igUS8CzMzdr7SkOX_RTIUU-oKDgdEigm69kSsMs9BeQKhiaprs51_Brq2bKSV3UHYyJe94cb5PEYykg2U5c-OgW69pzyzXMaz3IqQ4UXEHJ1DQxNWVOVtm42G0%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Mira Network Tokenomics 2025: $MIRA's Verified AI Utility or Hype? - YouTube</span>
+								
+						</div>
+						<a href="https://www.youtube.com/watch?v=F_fG1VHQ44Q" class="reference-link" target="_blank">
+							https://www.youtube.com/watch?v=F_fG1VHQ44Q
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFCSgJH_uXK4klFoEtI67ABE97yVAMdUe0hZLVxhbothBYRuAymBDfm4uLb4-YfM40VpA52IQPG1KS5M-h-cb5gnGIY6MJFRGOr6n1d4OSuXXzuOcce4IQqdEiuqtxE49Cl3ZPusIEYO-1Mj2EJHu3SVBFY08yZwqGFEqCf5S0kQFqm)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">STRONGER TOGETHER. How Mira Network's Partnerships Drive… | by Miss J | Medium</span>
+								
+						</div>
+						<a href="https://medium.com/@missj.crypto/stronger-together-how-mira-networks-partnerships-drive-innovation-in-decentralized-ai-a83350117861" class="reference-link" target="_blank">
+							https://medium.com/@missj.crypto/stronger-together-how-mira-networks-partnerships-drive-innovation-in-decentralized-ai-a83350117861
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[16](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHACsKJ31H0spENwEjrKFGfd64A0mAjcg8TyapdcvrhRfvRWhnr7vT_i24jsP4KR-LuvuJnjpyWae78SuXFYy-7VXRNHBFxWNTsPApzkF_4Q-2SDv0_NwE5CLAKIiEApnjR_tvmfF6MRjII)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Mira (MIRA) Tokenomics: Market Insights, Token Supply, Distribution &amp; Price Data | MEXC</span>
+								
+						</div>
+						<a href="https://www.mexc.com/price/mira-network/tokenomics" class="reference-link" target="_blank">
+							https://www.mexc.com/price/mira-network/tokenomics
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[17](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEiM1QaDxeKDBiAM_i0OHeuq-oal0fXFOdWoOi6QOQhFRxmMGgf27groHAzqMi2vkrc2vU2R6Zs1BMFg4IDVBr3E5YQ2hw94K4tXQuzyTDtZAeRznBNAfWnucljzFOM-gm3C8ifgpL4C1dt0Eb8JjJ1_cygz_s3Y_VPGEgW1R2qLq4vzXen9UlU8GC954nES05PAwJg1izmcz9POw%3D%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Mira Network Airdrop Guide: Everything You Need to Know | CoinMarketCap</span>
+								
+						</div>
+						<a href="https://coinmarketcap.com/community/articles/66829100586a1104e57816d9/" class="reference-link" target="_blank">
+							https://coinmarketcap.com/community/articles/66829100586a1104e57816d9/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[8](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHLIfDPlmsbGLsOiTwc6ZRKtu-VFbDF1okhKUtWLHpn8T1-eYJsFM98aYTb_M5cRGVSXt6rO5Jf2_pu-Bl_jtB9QpMOJzGgHQkWt-kP3gfqiQtlUfE%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Potential Klok Airdrop » How to be eligible?</span>
+								
+						</div>
+						<a href="https://airdrops.io/klok/" class="reference-link" target="_blank">
+							https://airdrops.io/klok/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFmmPRokAQhnWYQ4tDLL3awRcf1TfNW1xQikD60YkGNRko753EgU5TRFLMlkPn_2yeA_qBXCPoAijWeYaWSAcoPj-OkJB_jUKBPD9GDKWp5lYImOBolYBJ5zIfcPZK8pL9tLU09oWbErBridFTwQxNzcHq58j6y6zw3l6Qc_afD_-1DEgSOkeRHKMzTo30VfL5XHetv92_Bwm9RRkiMPx3IEB623FRdHcM5Mb4R5gFnVpc%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">What is MIRA Network (MIRA Coin)? Complete Guide to the AI Verification Crypto Token</span>
+								
+						</div>
+						<a href="https://www.mexc.com/learn/article/what-is-mira-network-mira-coin-complete-guide-to-the-ai-verification-crypto-token/1" class="reference-link" target="_blank">
+							https://www.mexc.com/learn/article/what-is-mira-network-mira-coin-complete-guide-to-the-ai-verification-crypto-token/1
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[11](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG8qY2edGn0X-eYVL_ZNjk8_g-14cK01surYujo6ObW1CfPkQvnfacc06Fo7UWSqKFKqa8Ya4jHxWsF8nPg7ZjVYe0jGfQl_01wwhwO2tqv3gjwzrJDIYeQ-H_ou2D7FNPT5GABPZlHAtrJbnoJZu9A3b_m9B2y1mWdcoVg2MiGugZoKNRP8AQ7oSbVS8zf4SAt_x02sgDOw2Y%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Klok AI: Earn Rewards by Chatting with AI on Your Mobile - Toolify AI</span>
+								
+						</div>
+						<a href="https://toolify.ai/ai-news/klok-ai-earn-rewards-by-chatting-with-ai-on-your-mobile-143098" class="reference-link" target="_blank">
+							https://toolify.ai/ai-news/klok-ai-earn-rewards-by-chatting-with-ai-on-your-mobile-143098
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[18](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEiiU4ULtejWmSJvUi7Dj_CDIjkpizr-4-QK_8jO1mdh1V3wOJIzPG1wdA8cdWdk2QgtUURjaw84FFRyIIa18tu9-iOYi7LI5AFnBaSYXfHz6HfyZGx2AfY_oGSPg%3D%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Mira Network Airdrop » Claim free MIRA tokens</span>
+								
+						</div>
+						<a href="https://airdrops.io/mira-network/" class="reference-link" target="_blank">
+							https://airdrops.io/mira-network/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[19](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHpAk3igbfm7A0TquWEXKJiyk9i49x3j2TmsQyZPMUGT574GOLyvphXHi-4BnsOaMXYAq6qJ7KEMZWVeJLbAW-ibqA1kzn4vGToN62ISn5wGAq1G1Bj8hVqvsXI9Q-iz8i3RD7LK5iwyVQxlVCdj_Dpvz61-zt53jBgp8Q6m6YTFv0%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Klok AI – Applications sur Google Play</span>
+								
+						</div>
+						<a href="https://play.google.com/store/apps/details?id=com.mira.klok.app&hl=fr&gl=US" class="reference-link" target="_blank">
+							https://play.google.com/store/apps/details?id=com.mira.klok.app&hl=fr&gl=US
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[9](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFG5_To4cEHW0jG8kSqtH9OIWJx2uMtvJC6VeL1_2oLjqbX4IxTNXuWdKgGqkWbDlxxWdoMiaaI6nmmVnUEG6OOXgm_3pzcxhpFBh4-8TJFbkQ0BrxW4oNgTyQNU1R5WNfj86CkEe1_KYI%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Klok - Airdrop Alert</span>
+								
+						</div>
+						<a href="https://airdropalert.com/klok-airdrop" class="reference-link" target="_blank">
+							https://airdropalert.com/klok-airdrop
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[10](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFRH6zsINKBjl8OJufFRfXqg4RTf21_5KghEI9I74vKNjH-0kNsMgPM9ILX68wskUcKF8gUjDguS2RsSgQIP4zjwHTSltOf2aTI_s4_C6zQ2rMuoOeGJMwtBzdMylpTo0bgGsxJnscwUQ%3D%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Klok Airdrop - Get Mira points today - FreeCoins24</span>
+								
+						</div>
+						<a href="https://freecoins24.io/klok-airdrop/" class="reference-link" target="_blank">
+							https://freecoins24.io/klok-airdrop/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFfaNv5Wq02uKisVJRRXRIHZFNPwrJSFayDKqFhLn9jbYc6RdoztCGl3Q1uhF3zOeH9iR_FoK-f3h4wZuIK2Ay5z_tj47NncxQD_v21XKuuMSOG-J9huE-08iXGzBe5Z0FcOfkxVWxFqVSAF2X_PcpKAM9jWyRq2hVHZavcHNusgHU7bsfzB26gpdmYAMD8wfO3ToZG40XJToMvzbOhtg%3D%3D)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">io.net Partners With Mira Network to Advance AI Verification - The Crypto Times</span>
+								
+						</div>
+						<a href="https://cryptotimes.io/io-net-partners-with-mira-network-to-advance-ai-verification/" class="reference-link" target="_blank">
+							https://cryptotimes.io/io-net-partners-with-mira-network-to-advance-ai-verification/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[20](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQF4NFagr6MkhsikiA7JuQk2pDxAtJvZg-ZVe_QYkQvt43OjEX2A_-tBYS4EyKVRr1JpD7_qZckyMdWlT1N1HH6HE3YinDRARBVG5FbhL_ZzsbhX8MI_CTPGBDtZZgp96dzUakhHK-m9GaIA)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Mira Network Analysis | Rating, Review &amp; Stats - Coinlaunch</span>
+								
+						</div>
+						<a href="https://coinlaunch.space/projects/mira-network/" class="reference-link" target="_blank">
+							https://coinlaunch.space/projects/mira-network/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[7](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEpw3ZU_OfURWTtjNv25Brs_u-CUn_Ev8mYnuZRYDHWTY510jiaAkZf6SXIj3vSRZQChEZZY6mol3_wHrHNQZ4uWs8214nvCjmjYqbmORr7eXkMRCoAItqkC2hz7pZDS76QB7iqv_R7wbTTHqf_mQAFcl_pRAzUH2G_uSnvJpE8-5KZfH09lwB8T__tStru9RB1)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">KGeN and Mira Network partner to build AI agents in games - PocketGamer.biz</span>
+								
+						</div>
+						<a href="https://www.pocketgamer.biz/news/83489/kgen-mira-network-partner-build-ai-agents-games/" class="reference-link" target="_blank">
+							https://www.pocketgamer.biz/news/83489/kgen-mira-network-partner-build-ai-agents-games/
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEnSgpyPtZNF6YUhJmjWI7yrXCtxrC0rcVOqriH0HemWw1xJJ1gph7VspbDfeUv9kiLsN_FNrs2p4KcWdIYfPdgcyClWlw4QOWKBkpRvSU6dvX6qLBCc2AAiRfrVZFEN_V2r73BwZShjdWDMWwlb5j0s1e7emMjLdQ7zUynWUQixmhBLuL1j3VThRdqGJoEoIPg5S5EpN7MDQNanW8U4HMT7sLGXTAnm-e0sdK5_ptAK7F4mzst)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">What Is Mira Network (MIRA) Crypto: Everything You Need To Know About It - BTCC</span>
+								
+						</div>
+						<a href="https://www.btcc.com/en-US/academy/research-analysis/what-is-mira-network-mira-crypto" class="reference-link" target="_blank">
+							https://www.btcc.com/en-US/academy/research-analysis/what-is-mira-network-mira-crypto
+						</a>
+					</div>
+				</div>
+				
+				<div class="reference-item">
+					<span class="reference-number">[[13](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFd1eOFOotOPQ7X6OxmHS178JNg7RRA22XEJMjHlvSiGU3zI2tyoEIk2vtvneAQmcL-nDvtmzomyHPhn7gyWL2kQWxiBOKXVTXYC-zxQLlU--WWNvcYWa3TqDLsaPlLRC1All_uAgumdwviC6XM)]</span>
+					<div class="reference-content">
+						<div class="reference-text-container">
+							<span class="reference-text">Mira price today, MIRA to USD live price, marketcap and chart | CoinMarketCap</span>
+								
+						</div>
+						<a href="https://coinmarketcap.com/currencies/mira/" class="reference-link" target="_blank">
+							https://coinmarketcap.com/currencies/mira/
+						</a>
+					</div>
+				</div>
+				
 			</div>
-		</div></div>
+		</div>
+	</div></div>
 <script>
-        // ECharts for Tokenomics
-        var tokenomicsChart = echarts.init(document.getElementById('tokenomics-chart'), 'dark');
-        var tokenomicsOption = {
-            backgroundColor: 'transparent',
-            tooltip: {
-                trigger: 'item',
-                formatter: '{b}: {c}%'
-            },
-            legend: {
-                show: false
-            },
-            series: [
-                {
-                    name: 'Token Distribution',
-                    type: 'pie',
-                    radius: ['50%', '70%'],
-                    avoidLabelOverlap: false,
-                    itemStyle: {
-                        borderRadius: 10,
-                        borderColor: '#161b22',
-                        borderWidth: 2
-                    },
-                    label: {
-                        show: false,
-                        position: 'center'
-                    },
-                    emphasis: {
-                        label: {
-                            show: true,
-                            fontSize: '20',
-                            fontWeight: 'bold',
-                            color: '#f0f6fc'
-                        }
-                    },
-                    labelLine: {
-                        show: false
-                    },
-                    data: [
-                        { value: 26, name: 'Ecosystem Reserve', itemStyle: { color: '#5470c6' } },
-                        { value: 20, name: 'Core Contributors', itemStyle: { color: '#91cc75' } },
-                        { value: 16, name: 'Future Node Rewards', itemStyle: { color: '#fac858' } },
-                        { value: 15, name: 'Foundation', itemStyle: { color: '#ee6666' } },
-                        { value: 14, name: 'Early Investors', itemStyle: { color: '#73c0de' } },
-                        { value: 6, name: 'Initial Airdrop', itemStyle: { color: '#3ba272' } },
-                        { value: 3, name: 'Liquidity Incentives', itemStyle: { color: '#fc8452' } }
-                    ]
-                }
-            ]
-        };
-        tokenomicsChart.setOption(tokenomicsOption);
+// ECharts for Tokenomics
+var tokenomicsChart = echarts.init(document.getElementById('tokenomics-chart'));
+var tokenomicsOption = {
+backgroundColor: 'transparent',
+tooltip: {
+trigger: 'item',
+formatter: '{b}: {c}%'
+},
+legend: {
+show: false
+},
+series: [
+{
+name: 'Token Distribution',
+type: 'pie',
+radius: ['50%', '70%'],
+avoidLabelOverlap: false,
+itemStyle: {
+borderRadius: 10,
+borderColor: '#fff',
+borderWidth: 2
+},
+label: {
+show: false,
+position: 'center'
+},
+emphasis: {
+label: {
+show: true,
+fontSize: '20',
+fontWeight: 'bold',
+color: '#333'
+}
+},
+labelLine: {
+show: false
+},
+data: [
+{ value: 26, name: 'Ecosystem Reserve', itemStyle: { color: '#5470c6' } },
+{ value: 20, name: 'Core Contributors', itemStyle: { color: '#91cc75' } },
+{ value: 16, name: 'Future Node Rewards', itemStyle: { color: '#fac858' } },
+{ value: 15, name: 'Foundation', itemStyle: { color: '#ee6666' } },
+{ value: 14, name: 'Early Investors', itemStyle: { color: '#73c0de' } },
+{ value: 6, name: 'Initial Airdrop', itemStyle: { color: '#3ba272' } },
+{ value: 3, name: 'Liquidity Incentives', itemStyle: { color: '#fc8452' } }
+]
+}
+]
+};
+tokenomicsChart.setOption(tokenomicsOption);
 
-        // ECharts for AI Token Market Cap Growth
-        var marketCapChart = echarts.init(document.getElementById('market-cap-chart'), 'dark');
-        var marketCapOption = {
-            backgroundColor: 'transparent',
-            title: {
-                text: 'AI Token Market Cap Growth (USD)',
-                left: 'center',
-                textStyle: {
-                    color: '#f0f6fc'
-                }
-            },
-            tooltip: {
-                trigger: 'axis',
-                formatter: function (params) {
-                    return params[0].name + '<br/>' + params[0].seriesName + ' : $' + params[0].value + ' Billion';
-                }
-            },
-            xAxis: {
-                type: 'category',
-                data: ['April 2023', 'Mid-2025'],
-                axisLine: {
-                    lineStyle: {
-                        color: '#8b949e'
-                    }
-                }
-            },
-            yAxis: {
-                type: 'value',
-                name: 'Market Cap (Billions)',
-                axisLabel: {
-                    formatter: '${value}B'
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#8b949e'
-                    }
-                },
-                splitLine: {
-                    lineStyle: {
-                        color: '#30363d'
-                    }
-                }
-            },
-            series: [{
-                name: 'AI Token Market Cap',
-                type: 'bar',
-                data: [2.7, 36],
-                itemStyle: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                        { offset: 0, color: '#8ec3ff' },
-                        { offset: 1, color: '#58a6ff' }
-                    ])
-                },
-                barWidth: '40%'
-            }]
-        };
-        marketCapChart.setOption(marketCapOption);
+// ECharts for AI Token Market Cap Growth
+var marketCapChart = echarts.init(document.getElementById('market-cap-chart'));
+var marketCapOption = {
+backgroundColor: 'transparent',
+title: {
+text: 'AI Token Market Cap Growth (USD)',
+left: 'center',
+textStyle: {
+color: '#333'
+}
+},
+tooltip: {
+trigger: 'axis',
+formatter: function (params) {
+return params.name + '<br/>' + params.seriesName + ' : $' + params.value + ' Billion';
+}
+},
+xAxis: {
+type: 'category',
+data: ['April 2023', 'Mid-2025'],
+axisLine: {
+lineStyle: {
+color: '#333'
+}
+}
+},
+yAxis: {
+type: 'value',
+name: 'Market Cap (Billions)',
+axisLabel: {
+formatter: '${value}B'
+},
+axisLine: {
+lineStyle: {
+color: '#333'
+}
+},
+splitLine: {
+lineStyle: {
+color: '#eee'
+}
+}
+},
+series: [{
+name: 'AI Token Market Cap',
+type: 'bar',
+data: [2.7, 36],
+itemStyle: {
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: '#83bff6' },
+{ offset: 0.5, color: '#188df0' },
+{ offset: 1, color: '#188df0' }
+])
+},
+barWidth: '40%'
+}]
+};
+marketCapChart.setOption(marketCapOption);
 
-        window.addEventListener('resize', function() {
-            tokenomicsChart.resize();
-            marketCapChart.resize();
-        });
-    </script>
+window.addEventListener('resize', function() {
+tokenomicsChart.resize();
+marketCapChart.resize();
+});
+</script>
 
 </body></html>
+
+Sources
+help
+mexc.com
+btcc.com
+medium.com
+phemex.com
+youtube.com
+cryptotimes.io
+pocketgamer.biz
+airdrops.io
+airdropalert.com
+freecoins24.io
+toolify.ai
+procryptoairdrop.com
+coinmarketcap.com
+icoanalytics.org
+miranetwork.io
+mexc.co
+coinmarketcap.com
+airdrops.io
+google.com
+coinlaunch.space
+Google Search Suggestions
+Display of Search Suggestions is required when using Grounding with Google Search. Learn more
+Mira Network tokenomics
+Mira Network roadmap
+Mira Network partnerships
+Klok AI application
