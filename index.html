@@ -1,15 +1,394 @@
 <!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Mira Network: Building the Trust Layer for a Verifiable AI Future</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-<link href="https://us-tiangong-data.oss-accelerate.aliyuncs.com/doc/gemini_css/technology_blue_and_green.css?OSSAccessKeyId=LTAI5tGmBYBVtG6Cxb4BaviJ&amp;Expires=4914044129&amp;Signature=78%2F5NVyh5wfcGSSPorJhSJUs06o%3D" rel="stylesheet"/>
-<link href="https://us-tiangong-data.oss-accelerate.aliyuncs.com/doc/gemini_css/table.css?OSSAccessKeyId=LTAI5tGmBYBVtG6Cxb4BaviJ&amp;Expires=4914044665&amp;Signature=X%2F%2BipJztge3UJ3Ojq5wcxRk%2F7zk%3D" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link href="https://us-tiangong-data.oss-accelerate.aliyuncs.com/doc/gemini_css/technology_blue_and_green.css?OSSAccessKeyId=LTAI5tGmBYBVtG6Cxb4BaviJ&amp;Expires=4914044129&amp;Signature=78%2F5NVyh5wfcGSSPorJhSJUs06o%3D" rel="stylesheet">
+<link href="https://us-tiangong-data.oss-accelerate.aliyuncs.com/doc/gemini_css/table.css?OSSAccessKeyId=LTAI5tGmBYBVtG6Cxb4BaviJ&amp;Expires=4914044665&amp;Signature=X%2F%2BipJztge3UJ3Ojq5wcxRk%2F7zk%3D" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style>
 <script src="https://us-tiangong-data.oss-accelerate.aliyuncs.com/doc/gemini_css/macarons_v2.js?OSSAccessKeyId=LTAI5tGmBYBVtG6Cxb4BaviJ&amp;Expires=4914188330&amp;Signature=mE%2FFv6owOnvs%2FB7rWTRxwD9tj9M%3D"></script>
-<style>.container {
-    max-width: 800px;
+<link href="https://static.skywork.ai/fe/skywork-site-assets/styles/doc_reference_style.css?v=1986743153661890560" rel="stylesheet"><style>html {
+    box-sizing: border-box;
+    }
+*, *::before, *::after {
+    box-sizing: inherit;
+    }
+.cover-container {
+    position: relative;
+    height: 1131.4px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0F172A 0%, #1a2847 100%);
+    margin: 0 auto;
+    max-width: 880px;
+    padding: 0;
+    }
+.cover-container /* Background Image with Gradient Overlay */ .cover-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://agents-download.skywork.ai/image/rt/02b23b53ef9d6b5d6badb9b6ea6facf9.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.65;
+    z-index: 1;
+    }
+.cover-container /* Dark Gradient Overlay for Text Legibility */ .cover-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.75) 40%, rgba(15, 23, 42, 0.65) 70%, rgba(15, 23, 42, 0.55) 100%);
+    z-index: 2;
+    }
+.cover-container /* Accent Geometric Elements */ .accent-block-primary {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 450px;
+    height: 280px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+    clip-path: polygon(0 30%, 100% 0%, 100% 100%, 0 100%);
+    z-index: 3;
+    }
+.cover-container .accent-block-secondary {
+    position: absolute;
+    bottom: 120px;
+    left: 380px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.08) 100%);
+    border-radius: 12px;
+    transform: rotate(-15deg);
+    z-index: 3;
+    }
+.cover-container /* Text Content Container */ .content-wrapper {
+    position: relative;
+    z-index: 4;
+    padding: 60px 50px;
+    max-width: 700px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    }
+.cover-container /* Title Block Background Panel */ .title-panel {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    padding: 45px 40px;
+    border-left: 4px solid #3B82F6;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+.cover-container /* Main Title */ .main-title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFF;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+    }
+.cover-container /* Subtitle */ .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #E0E7FF;
+    margin-bottom: 28px;
+    opacity: 0.95;
+    }
+.cover-container /* Divider Line */ .divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+    margin-bottom: 20px;
+    border-radius: 2px;
+    }
+.cover-container /* Metadata Section */ .metadata {
+    display: flex;
+    gap: 30px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(59, 130, 246, 0.2);
+    }
+.cover-container .metadata-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    }
+.cover-container .metadata-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #60A5FA;
+    }
+.cover-container .metadata-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #F1F5F9;
+    }
+.cover-container /* Floating Accent Elements */ .accent-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0.1));
+    z-index: 3;
+    }
+.cover-container .accent-dot-1 {
+    width: 120px;
+    height: 120px;
+    top: 80px;
+    right: 100px;
+    opacity: 0.6;
+    }
+.cover-container .accent-dot-2 {
+    width: 80px;
+    height: 80px;
+    bottom: 200px;
+    right: 50px;
+    opacity: 0.4;
+    }
+.toc-container {
+    position: relative;
+    margin: 0 auto;
+    padding: 80px 50px;
+    max-width: 880px;
+    overflow: hidden;
+    }
+.toc-container .toc-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://agents-download.skywork.ai/image/rt/02b23b53ef9d6b5d6badb9b6ea6facf9.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: 0;
+    }
+.toc-container .toc-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.92) 100%);
+    z-index: 0;
+    }
+.toc-container > .toc-container h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFF;
+    margin: 0 0 50px 0;
+    letter-spacing: -0.5px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%) 1;
+    }
+.toc-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    }
+.toc-container li {
+    margin: 0;
+    padding: 0;
+    }
+.toc-container li.level-1 {
+    margin-bottom: 28px;
+    padding-left: 0;
+    }
+.toc-container li.level-1 > a, .toc-container li.level-1 > span {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #E0E7FF;
+    line-height: 1.6;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    }
+.toc-container li.level-1 > a:hover {
+    color: #3B82F6;
+    padding-left: 8px;
+    }
+.toc-container li.level-1 > ul {
+    margin-top: 12px;
+    padding-left: 24px;
+    border-left: 2px solid rgba(59, 130, 246, 0.3);
+    }
+.toc-container li.level-2 {
+    margin-bottom: 10px;
+    padding-left: 0;
+    }
+.toc-container li.level-2 > a, .toc-container li.level-2 > span {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    color: #CBD5E1;
+    line-height: 1.6;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+    }
+.toc-container li.level-2 > a:hover {
+    color: #60A5FA;
+    padding-left: 6px;
+    }
+.toc-container li.level-2 > ul {
+    margin-top: 8px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(59, 130, 246, 0.2);
+    }
+.toc-container li.level-3 {
+    margin-bottom: 6px;
+    padding-left: 0;
+    }
+.toc-container li.level-3 > a, .toc-container li.level-3 > span {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    color: #94A3B8;
+    line-height: 1.5;
+    padding: 6px 0;
+    transition: all 0.3s ease;
+    }
+.toc-container li.level-3 > a:hover {
+    color: #60A5FA;
+    padding-left: 4px;
+    }
+.toc-container a {
+    text-decoration: none;
+    color: inherit;
+    }
+.toc-container a:focus {
+    outline: 2px solid #3B82F6;
+    outline-offset: 2px;
+    }
+.container {
+    max-width: 880px;
     margin: 0 auto;
     padding: 24px 40px;
     background-color: #fff;
@@ -420,714 +799,796 @@ tr:nth-child(even) {
     white-space: nowrap;
     transform: translate(-50%, -50%);
     }
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2em;
-        }
-    article h2 {
-        font-size: 1.8em;
-        }
-    article h3 {
-        font-size: 1.4em;
-        }
-    .comparison-grid {
-        grid-template-columns: 1fr;
-        }
-    .roadmap-timeline::before {
-        left: 10px;
-        }
-    .roadmap-item, .roadmap-item:nth-child(even) {
-        width: 100%;
-        left: 0;
-        padding-left: 60px;
-        padding-right: 10px;
-        text-align: left;
-        }
-    .roadmap-item::after, .roadmap-item:nth-child(even)::after {
-        left: 0;
-        }
-    .ecosystem-map {
-        display: none;
-        }
-    /* Simplified for mobile */
-    .ecosystem-list {
-        display: block;
-        }
-    }
 .ecosystem-list {
     display: none;
     }
-/* Hidden on desktop */
-@media only screen and (max-device-width: 768px) {
-            body {
-                padding: 0;
-                margin: 0;
-                font-size: 15px;
-                line-height: 1.5;
-            }
-
-            .container {
-                padding: 0;
-                margin: 16px 20px 30px;
-                box-shadow: none;
-            }
-
-            h1,
-            h2,
-            h3,
-            h4 {
-            }
-
-            h1 {
-                font-size: 1.87em;
-                line-height: 1.6;
-                margin-bottom: 0.5em;
-                text-align: center;
-            }
-
-            h2 {
-                font-size: 1.6em;
-                font-weight: 600;
-                margin-top: 1.3em;
-                margin-bottom: 0.8em;
-                border-bottom: 1px solid #eee;
-                padding-bottom: 0.5em;
-            }
-
-            h3 {
-                font-size: 1.2em;
-                font-weight: 600;
-                margin-top: 1em;
-                margin-bottom: 0.6em;
-            }
-
-            h4 {
-                font-size: 1.1em;
-                font-weight: 500;
-                margin-top: 1em;
-                margin-bottom: 0.5em;
-                font-style: normal;
-            }
-
-            h5 {
-                font-size: 1em;
-                font-weight: 500;
-                margin-bottom: 1.2em;
-            }
-
-            ul,
-            ol {
-                font-size: 1em; /* Equivalent to 17.6px if base is 16px */
-                font-weight: 400;
-                margin-bottom: 1.2em;
-                line-height: 1.8;
-            }
-
-            p {
-                font-size: 1em;
-                line-height: 1.8; /* Equivalent to 17.6px if base is 16px */
-                font-weight: 400;
-                margin-top: 0.8em;
-                margin-bottom: 0.8em;
-            }
-
-            blockquote {
-                padding: 1em 1.2em;
-
-            p {
-                margin: 0;
-            }
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
         }
-
-        figcaption {
-            margin-top: 0.5em;
-            font-size: 0.8em; /* Equivalent to 17.6px if base is 16px */
-            font-weight: 400;
-            text-align: center;
-            font-style: normal;
-            color: #7F8896;
+    .cover-container, .toc-container {
+        width: 100%;
+        height: 100vh;
+        /* 确保适应页面高度 */
+        overflow: hidden;
+        /* 避免内容溢出 */
+        page-break-after: always !important;
+        -webkit-print-color-adjust: exact !important;
         }
+    }</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
 
-        img {
-            display: block;
-            overflow: hidden;
-            max-width: 100%;
-            max-height: 335px;
-            margin: 1em auto;
-            border-radius: 8px;
-        }
-        }</style>
-<link rel="stylesheet" href="https://static.skywork.ai/fe/skywork-site-assets/styles/doc_reference_style.css?v=1986743153661890560"/></head>
-<body>
-<div class="container">
-<header>
-<h1 id="section-1">Mira Network: Building the Trust Layer for a Verifiable AI Future</h1>
-<div class="meta">
-                Published on November 7, 2025
-            </div>
-</header>
-<p>The world is in the midst of an artificial intelligence revolution. From chatbots that write poetry to sophisticated agents that generate code, AI is experiencing a level of adoption that the crypto world has long dreamed of. According to a <a href="https://www.bpm.com/insights/blockchain-and-digital-assets-outlook-2025/" target="_blank">2025 industry outlook</a>, the convergence of AI and blockchain is a major trend, with the market projected to exceed $703 million this year. The total market for AI tokens alone has exploded, surging from $2.7 billion in April 2023 to over $36 billion by mid-2025, as noted in a recent <a href="https://explodingtopics.com/blog/cryptocurrency-trends" target="_blank">Exploding Topics report</a>.</p>
-<p>However, this rapid ascent has cast a harsh light on one of AI&#39;s most persistent and dangerous flaws: <strong>unreliability</strong>. Even the most advanced models, like OpenAI&#39;s GPT-4o, have faced criticism for producing outputs that are polished yet patronizing, or worse, factually incorrect. These errors, broadly categorized as &#34;hallucinations&#34; and &#34;bias,&#34; are not just minor glitches; they are fundamental barriers preventing AI from achieving its transformative potential. From fabricated legal cases cited in courtrooms to flawed medical diagnoses, the consequences of unreliable AI are already causing measurable damage.</p>
-<blockquote>
-                As AI adoption accelerates, the unintended consequences of inaccurate outputs are becoming more evident, with significant implications on trust, safety, and decision-making. The need for a trust layer is no longer a theoretical concept but a practical necessity.
-            </blockquote>
-<p>This is where the worlds of AI and crypto finally, meaningfully, converge. Just as blockchain brought verifiable scarcity to digital assets, it can now bring verifiable truth to digital intelligence. Enter <strong><a href="https://mira.network/" target="_blank">Mira Network</a></strong>, a groundbreaking project positioning itself as the essential trust layer for AI. By building a decentralized verification protocol, Mira is not just improving AI—it&#39;s making it safer, more reliable, and truly autonomous. This is the story of how Mira is solving AI&#39;s trillion-dollar reliability problem.</p>
-<h2 id="section-1">The AI Reliability Crisis: Understanding the Training Dilemma</h2>
-<p>To appreciate the magnitude of what Mira is solving, we must first understand why AI models are inherently unreliable. The core of the issue lies in what is known as the &#34;training dilemma,&#34; a problem analogous to the precision-accuracy trade-off in classical science.</p>
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+<body class="" data-sk-edited=""><div class="cover-container">
+<!-- Accent Geometric Elements -->
+<div class="accent-block-primary"></div>
+<div class="accent-block-secondary"></div>
+<div class="accent-dot accent-dot-1"></div>
+<div class="accent-dot accent-dot-2"></div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<div class="title-panel">
+<div class="divider"></div>
+<h1 class="main-title"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">
+                    <span data-sk-edited="" style="color: rgb(255, 255, 255);">Mira<span data-sk-edited="" style="color: rgb(125, 225, 129);"> </span></span><span data-sk-edited="" style="color: rgb(125, 225, 129);">Network</span>
+                </span></h1>
+<p class="subtitle"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">
+                    <span data-sk-edited="" style="color: rgb(125, 225, 129);">Building the Trust Layer for a Verifiable AI Future</span>
+                </span></p>
+<div class="metadata" data-sk-edited="">
+<div class="metadata-item">
+<span class="metadata-label" style="color: rgb(255, 255, 255); letter-spacing: 0px;">Publication Date</span>
+<span class="metadata-value" style="color: rgb(255, 255, 255); letter-spacing: 0px;">November 7, 2025</span>
+</div>
+<div class="metadata-item">
+<span class="metadata-label" style="color: rgb(255, 255, 255); letter-spacing: 0px;" data-sk-edited="">Written by</span>
+<span class="metadata-value" style="color: rgb(255, 255, 255); letter-spacing: 0px;" data-sk-edited="">stfu 0911</span>
+</div>
+</div>
+</div>
+</div>
+</div><div class="toc-container" style="min-height: 1100px;">
+<h1><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Table of Contents</span></h1>
 <ul>
-<li><strong>Hallucinations (Precision Errors):</strong> These occur when an AI model generates information that is nonsensical, factually incorrect, or disconnected from the input prompt. It represents a failure of precision—the consistency of the model&#39;s outputs.</li>
-<li><strong>Bias (Accuracy Errors):</strong> This happens when a model&#39;s outputs systematically deviate from objective truth, often reflecting the biases present in its training data. This is a failure of accuracy—the model&#39;s alignment with ground truth.</li>
-</ul>
-<p>Model builders face an impossible choice. As detailed in the <a href="https://mira.network/research/mira-whitepaper.pdf" target="_blank">Mira Whitepaper</a>, when they curate training data to reduce hallucinations and improve precision, they inevitably introduce their own selection bias, leading to accuracy errors. Conversely, training on vast, diverse data sources to reduce bias can lead to an increase in hallucinations, as the model struggles to reconcile conflicting information. This creates a fundamental boundary where no single, standalone model can ever be perfectly reliable.</p>
-<div class="infographic">
-<h3 class="infographic-title" id="section-1-1">Infographic: The AI Training Dilemma</h3>
-<div class="comparison-grid">
-<div class="comparison-card">
-<h5>High Precision, Low Accuracy</h5>
+<li class="level-1">
+<a href="#section-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The AI Reliability Crisis: Understanding the Training Dilemma</span></a>
 <ul>
-<li><strong>Goal:</strong> Reduce Hallucinations</li>
-<li><strong>Method:</strong> Use highly curated, narrow training data.</li>
-<li><strong>Result:</strong> Outputs are consistent and precise.</li>
-<li><strong>Problem:</strong> The model inherits the biases of the data curators, leading to low accuracy and skewed perspectives.</li>
-</ul>
-</div>
-<div class="comparison-card">
-<h5>High Accuracy, Low Precision</h5>
-<ul>
-<li><strong>Goal:</strong> Reduce Bias</li>
-<li><strong>Method:</strong> Use diverse, broad, and potentially conflicting training data.</li>
-<li><strong>Result:</strong> The model reflects a wider range of perspectives, improving accuracy.</li>
-<li><strong>Problem:</strong> The model struggles to produce consistent outputs, leading to a higher rate of hallucinations.</li>
-</ul>
-</div>
-</div>
-<p style="text-align:center; margin-top:20px; font-style:italic; color: #8b949e;">This trade-off establishes a minimum error rate that cannot be overcome by any single AI model, regardless of its scale or architecture.</p>
-</div>
-<p>While fine-tuning can improve reliability within narrow domains, these specialized models struggle to incorporate new knowledge and handle unexpected edge cases. The only viable path forward is a multi-model consensus architecture. However, simply assembling an ensemble of models under a centralized authority is not a true solution, as the curator&#39;s own biases will inevitably influence the outcome. True reliability requires decentralized consensus, where a diverse network of independent models can collectively verify information, filter out hallucinations, and balance individual biases. This is precisely the infrastructure Mira Network is building.</p>
-<h2 id="section-2">Introducing Mira Network: The Decentralized Verification Protocol for AI</h2>
-<p>Mira Network is a pioneering decentralized protocol designed to solve AI&#39;s fundamental reliability problem through trustless, on-chain consensus. It functions as a middleware network that transforms unreliable AI outputs into cryptographically verified information, acting as a crucial bridge between users and the underlying AI models.</p>
-<p>The mission is ambitious yet clear: to build the foundational infrastructure for trustless, verified intelligence at scale. By leveraging blockchain technology, Mira creates a new paradigm where AI systems can operate autonomously with unprecedented reliability, addressing the core challenge that has prevented AI from reaching its full transformative potential. As of late 2025, the Mira ecosystem already supports over <strong>4.5 million users</strong> and processes billions of tokens daily, demonstrating its scalability and real-world traction <a href="https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/" target="_blank">Ainvest</a>, <em data-ref-id="1986743146326052864" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052864" data-sk-source-text=","></em>.</p>
-<blockquote>
-                &#34;While projects like Chainlink brought reliability to DeFi, Mira is doing the same for AI, making it safer, verifiable, and truly autonomous.&#34; - <a href="https://medium.com/@jenniferchukwuma2020/mira-the-trust-layer-for-ai-bae204e44672" target="_blank">Jennifer Chukwuma, Tech Analyst</a>
-</blockquote>
-<p>Built on the <a href="https://www.binance.com/en/square/post/30100471193481" target="_blank">Base blockchain</a> (an Ethereum Layer 2 incubated by Coinbase), Mira leverages the security and scalability of a leading L2 to deliver its services efficiently. This strategic choice provides the necessary speed, low cost, and security for verifiable AI, with sub-second block times and seamless integration with the broader Ethereum ecosystem.</p>
-<h3 id="section-2-1">How Mira Works: A Deep Dive into the Verification Process</h3>
-<p>Mira&#39;s core innovation is a novel protocol that systematically verifies AI-generated content. The process is source-agnostic, meaning it can verify both AI-generated and human-generated content with the same rigorous standards. The workflow can be broken down into three key stages:</p>
-<div class="infographic">
-<h3 class="infographic-title" id="section-2-2">Flowchart: The Mira Verification Workflow</h3>
-<div class="flowchart">
-<div class="flowchart-step">
-<h5>1. Content Submission &amp; Transformation</h5>
-<p>A user submits content (text, code, etc.) to the network and specifies verification requirements, such as the knowledge domain and consensus threshold.</p>
-</div>
-<div class="flowchart-arrow">↓</div>
-<div class="flowchart-step">
-<h5>2. Claim Generation (Binarization)</h5>
-<p>Mira&#39;s protocol breaks the complex content down into discrete, independently verifiable claims, while preserving logical relationships.</p>
-</div>
-<div class="flowchart-arrow">↓</div>
-<div class="flowchart-step">
-<h5>3. Distributed Verification &amp; Privacy Sharding</h5>
-<p>The claims are sharded and randomly distributed to a network of diverse AI models run by independent node operators. No single node sees the full content, ensuring privacy.</p>
-</div>
-<div class="flowchart-arrow">↓</div>
-<div class="flowchart-step">
-<h5>4. Multi-Model Consensus</h5>
-<p>The verifier models process the claims and submit their results. Mira&#39;s consensus mechanism aggregates the results to determine the validity of each claim.</p>
-</div>
-<div class="flowchart-arrow">↓</div>
-<div class="flowchart-step">
-<h5>5. Cryptographic Certificate Generation</h5>
-<p>The network generates a tamper-proof cryptographic certificate recording the verification outcome, including which models reached consensus. This certificate is returned to the user.</p>
-</div>
-</div>
-</div>
-<p>Let&#39;s illustrate with a simple example from the <a href="https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide" target="_blank">Blocmates guide</a>. Consider the statement: <em>&#34;Arsenal is a club in London that has won three (3) UEFA Champions League titles.&#34;</em></p>
-<ol>
-<li><strong>Transformation:</strong> The network breaks this into two claims:
-                    <ul>
-<li>Claim 1: &#34;Arsenal is a club in London.&#34;</li>
-<li>Claim 2: &#34;Arsenal has won three (3) UEFA Champions League titles.&#34;</li>
+<li class="level-2">
+<a href="#section-1-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Infographic: The AI Training Dilemma</span></a>
+</li>
 </ul>
 </li>
-<li><strong>Verification:</strong> These claims are sent to different verifier models. A sports history model would validate Claim 2 as false, while a geography model would validate Claim 1 as true.</li>
-<li><strong>Consensus &amp; Output:</strong> The network reaches a consensus that Claim 1 is valid and Claim 2 is invalid, returning a verified, corrected output to the user with a cryptographic proof of the process.</li>
-</ol>
-<p>This systematic approach, which reduces first-pass mistakes from over 30% to below 5%, is what allows Mira to deliver AI outputs with over 95% accuracy <a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" target="_blank">DePIN Scan</a>, <em data-ref-id="1986743146326052865" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052865" data-sk-source-text=","></em>.</p>
-<h3 id="section-2-3">The Economic Engine: Proof-of-Verification and Hybrid Security</h3>
-<p>Securing a decentralized verification network presents unique challenges. If verification is a simple multiple-choice question, what stops a malicious node from just guessing the answer for a chance at rewards without doing any computational work? Mira&#39;s economic security model brilliantly solves this with a hybrid consensus mechanism that combines Proof-of-Work (PoW) and Proof-of-Stake (PoS).</p>
+<li class="level-1">
+<a href="#section-2"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Introducing Mira Network: The Decentralized Verification Protocol for AI</span></a>
+<ul>
+<li class="level-2">
+<a href="#section-2-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">How Mira Works: A Deep Dive into the Verification Process</span></a>
+</li>
+<li class="level-2">
+<a href="#section-2-2"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Flowchart: The Mira Verification Workflow</span></a>
+</li>
+<li class="level-2">
+<a href="#section-2-3"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The Economic Engine: Proof-of-Verification and Hybrid Security</span></a>
+</li>
+<li class="level-2">
+<a href="#section-2-4"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Infographic: Mira's Hybrid Consensus Model</span></a>
+</li>
+</ul>
+</li>
+<li class="level-1">
+<a href="#section-3"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The MIRA Token: Fueling a Universe of Verifiable AI</span></a>
+<ul>
+<li class="level-2">
+<a href="#section-3-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Token Utility</span></a>
+</li>
+<li class="level-2">
+<a href="#section-3-2"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Tokenomics and Distribution</span></a>
+</li>
+<li class="level-2">
+<a href="#section-3-3"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">MIRA Token Distribution (1 Billion Total Supply)</span></a>
+</li>
+<li class="level-2">
+<a href="#section-3-4"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Vesting and Long-Term Alignment</span></a>
+</li>
+</ul>
+</li>
+<li class="level-1">
+<a href="#section-4"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The Mira Ecosystem: A Universe of Trust in Action</span></a>
+<ul>
+<li class="level-2">
+<a href="#section-4-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Infographic: The Mira Ecosystem Map</span></a>
+</li>
+<li class="level-2">
+<a href="#section-4-2"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Key Partnerships and Integrations</span></a>
+</li>
+<li class="level-2">
+<a href="#section-4-3"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Flagship Application: Klok AI</span></a>
+</li>
+<li class="level-2">
+<a href="#section-4-4"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Empowering Developers with the Mira SDK</span></a>
+</li>
+<li class="level-2">
+<a href="#section-4-5"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira SDK vs. Traditional Approach</span></a>
+</li>
+</ul>
+</li>
+<li class="level-1">
+<a href="#section-5"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira's Roadmap: The Path to a Fully Autonomous Future</span></a>
+<ul>
+<li class="level-2">
+<a href="#section-5-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira Network Roadmap</span></a>
+</li>
+</ul>
+</li>
+<li class="level-1">
+<a href="#section-6"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The 2025 Crypto Landscape: A Perfect Storm for Mira's Growth</span></a>
+</li>
+<li class="level-1">
+<a href="#section-7"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Conclusion: The Dawn of Verifiable Intelligence</span></a>
+<ul>
+<li class="level-2">
+<a href="#section-7-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Join the Mira Revolution</span></a>
+</li>
+<li class="level-2">
+<span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Reference</span>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="container">
+<header>
+<h1 id="section-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px; background-color: rgb(255, 255, 255);" data-sk-edited="">Mira Network: Building the Trust Layer for a Verifiable AI Future</span></h1>
+<div class="meta"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">
+                Published on November 7, 2025
+            </span></div>
+</header>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The world is in the midst of an artificial intelligence revolution. From chatbots that write poetry to sophisticated agents that generate code, AI is experiencing a level of adoption that the crypto world has long dreamed of. According to a</span><span data-sk-edited="" style="font-weight: bold;"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span><a href="https://www.bpm.com/insights/blockchain-and-digital-assets-outlook-2025/" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://www.bpm.com/insights/blockchain-and-digital-assets-outlook-2025/" target="_blank"><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">2025 industry outlook</span></a></span></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://www.bpm.com/insights/blockchain-and-digital-assets-outlook-2025/" target="_blank"><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited=""></span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">, </span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">the convergence of AI and blockchain is a major trend, with the market projected to exceed $703 million this year. The total market for AI tokens alone has exploded, surging from $2.7 billion in April 2023 to over $36 billion by mid-2025, as noted in a recent</span><span data-sk-edited="" style="color: rgb(104, 177, 255); font-weight: bold;"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span><a href="https://explodingtopics.com/blog/cryptocurrency-trends" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a><span data-sk-edited="" style="color: rgb(212, 125, 247);"><a href="https://explodingtopics.com/blog/cryptocurrency-trends" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(104, 177, 255);">Exploding Topic<span data-sk-edited="" style="color: rgb(104, 177, 255);">s re</span></span><span data-sk-edited="" style="color: rgb(104, 177, 255);">port</span></span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">.</span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></p>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">However, this rapid ascent has cast a harsh light on one of AI's most persistent and dangerous flaws: </span><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">unreliability</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">. Even the most advanced models, like OpenAI's GPT-4o, have faced criticism for producing outputs that are polished yet patronizing, or worse, factually incorrect. These errors, broadly categorized as "hallucinations" and "bias," are not just minor glitches; they are fundamental barriers preventing AI from achieving its transformative potential. From fabricated legal cases cited in courtrooms to flawed medical diagnoses, the consequences of unreliable AI are already causing measurable damage.</span></p>
+<blockquote><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">
+                As AI adoption accelerates, the unintended consequences of inaccurate outputs are becoming more evident, with significant implications on trust, safety, and decision-making. The need for a trust layer is no longer a theoretical concept but a practical necessity.
+            </span></blockquote>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">This is where the worlds of AI and crypto finally, meaningfully, converge. Just as blockchain brought verifiable scarcity to digital assets, it can now bring verifiable truth to digital intelligence. Enter </span><strong><a href="https://mira.network/" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a></strong><span data-sk-edited="" style="color: rgb(104, 177, 255);"><strong><a href="https://mira.network/" target="_blank"><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">Mira Network</span></a></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">,</span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> a groundbreaking project positioning itself as the essential trust layer for AI. By building a decentralized verification protocol, Mira is not just improving AI—it's making it safer, more reliable, and truly autonomous. This is the story of how Mira is solving AI's trillion-dollar reliability problem.</span></p>
+<h2 id="section-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The AI Reliability Crisis: Understanding the Training Dilemma</span></h2>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">To appreciate the magnitude of what Mira is solving, we must first understand why AI models are inherently unreliable. The core of the issue lies in what is known as the "training dilemma," a problem analogous to the precision-accuracy trade-off in classical science.</span></p>
+<ul>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Hallucinations (Precision Errors):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> These occur when an AI model generates information that is nonsensical, factually incorrect, or disconnected from the input prompt. It represents a failure of precision—the consistency of the model's outputs.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Bias (Accuracy Errors):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> This happens when a model's outputs systematically deviate from objective truth, often reflecting the biases present in its training data. This is a failure of accuracy—the model's alignment with ground truth.</span></li>
+</ul>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Model builders face an impossible choice. As detailed in the </span><a href="https://mira.network/research/mira-whitepaper.pdf" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira Whitepaper</span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">, when they curate training data to reduce hallucinations and improve precision, they inevitably introduce their own selection bias, leading to accuracy errors. Conversely, training on vast, diverse data sources to reduce bias can lead to an increase in hallucinations, as the model struggles to reconcile conflicting information. This creates a fundamental boundary where no single, standalone model can ever be perfectly reliable.</span></p>
 <div class="infographic">
-<h3 class="infographic-title" id="section-2-4">Infographic: Mira&#39;s Hybrid Consensus Model</h3>
+<h3 class="infographic-title" id="section-1-1"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;" data-sk-edited="">Infographic: The AI Training Dilemma</span></h3>
+<div class="comparison-grid" data-sk-edited="">
+<div class="comparison-card">
+<h5><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">High Precision, Low Accuracy</span></h5>
+<ul>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Goal</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Reduce Hallucinations</span></li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Method</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Use highly curated, narrow training data.</span></li>
+<li><strong><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Result:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Outputs are consistent and precise.</span></li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Problem</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> The model inherits the biases of the data curators, leading to low accuracy and skewed perspectives.</span></li>
+</ul>
+</div>
+<div class="comparison-card">
+<h5><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">High Accuracy, Low Precision</span></h5>
+<ul>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Goal</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Reduce Bias</span></li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Method</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Use diverse, broad, and potentially conflicting training data.</span></li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Result</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> The model reflects a wider range of perspectives, improving accuracy.</span></li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Problem</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> The model struggles to produce consistent outputs, leading to a higher rate of hallucinations.</span></li>
+</ul>
+</div>
+</div>
+<p style="text-align:center; margin-top:20px; font-style:italic; color: #8b949e;"><span style="color: rgb(222, 222, 222); letter-spacing: 0px;" data-sk-edited="">This trade-off establishes a minimum error rate that cannot be overcome by any single AI model, regardless of its scale or architecture.</span></p>
+</div>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">While fine-tuning can improve reliability within narrow domains, these specialized models struggle to incorporate new knowledge and handle unexpected edge cases. The only viable path forward is a multi-model consensus architecture. However, simply assembling an ensemble of models under a centralized authority is not a true solution, as the curator's own biases will inevitably influence the outcome. True reliability requires decentralized consensus, where a diverse network of independent models can collectively verify information, filter out hallucinations, and balance individual biases. This is precisely the infrastructure Mira Network is building.</span></p>
+<h2 id="section-2"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Introducing Mira Network: The Decentralized Verification Protocol for AI</span></h2>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira Network is a pioneering decentralized protocol designed to solve AI's fundamental reliability problem through trustless, on-chain consensus. It functions as a middleware network that transforms unreliable AI outputs into cryptographically verified information, acting as a crucial bridge between users and the underlying AI models.</span></p>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The mission is ambitious yet clear: to build the foundational infrastructure for trustless, verified intelligence at scale. By leveraging blockchain technology, Mira creates a new paradigm where AI systems can operate autonomously with unprecedented reliability, addressing the core challenge that has prevented AI from reaching its full transformative potential. As of late 2025, the Mira ecosystem already supports over </span><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">4.5 million users</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> and processes billions of tokens daily, demonstrating its scalability and real-world tractio</span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">n</span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></span></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span><a href="https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255); text-decoration: underline;"><a href="https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a></span></span></span></span></span><span data-sk-edited="" style="color: rgb(125, 225, 129); font-weight: bold;"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255); text-decoration: underline;"><a href="https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Ainvest</span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">,</span></span></span></span></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span></span></span></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">.</span></span></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></span></span></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></p>
+<blockquote><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">
+                "While projects like Chainlink brought reliability to DeFi, Mira is doing the same for AI, making it safer, verifiable, and truly autonomous." - </span><a href="https://medium.com/@jenniferchukwuma2020/mira-the-trust-layer-for-ai-bae204e44672" target="_blank"><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">Jennifer Chukwuma, Tech Analyst</span></a>
+</blockquote>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Built on the</span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span><a href="https://www.binance.com/en/square/post/30100471193481" target="_blank"><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">Base blockchain</span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">(</span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">a</span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">n</span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> Ethereum Layer 2 incubated by Coinbase), Mira leverages the security and scalability of a leading L2 to deliver its services efficiently. This strategic choice provides the necessary speed, low cost, and security for verifiable AI, with sub-second block times and seamless integration with the broader Ethereum ecosystem.</span></p>
+<h3 id="section-2-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;" data-sk-edited="">How Mira Works: A Deep Dive into the Verification Process</span></h3>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira's core innovation is a novel protocol that systematically verifies AI-generated content. The process is source-agnostic, meaning it can verify both AI-generated and human-generated content with the same rigorous standards. The workflow can be broken down into three key stages:</span></p>
+<div class="infographic" data-sk-edited="">
+<h3 class="infographic-title" id="section-2-2"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Flowchart: The Mira Verification Workflow</span></h3>
+<div class="flowchart">
+<div class="flowchart-step">
+<h5><span style="color: rgb(125, 225, 129); letter-spacing: 0px; background-color: rgb(0, 0, 0);" data-sk-edited="">1. Content Submission &amp; Transformation</span></h5>
+<p><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">A user submits content (text, code, etc.) to the network and specifies verification requirements, such as the knowledge domain and consensus threshold.</span></p>
+</div>
+<div class="flowchart-arrow"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">↓</span></div>
+<div class="flowchart-step">
+<h5><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">2. Claim Generation (Binarization)</span></h5>
+<p><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Mira's protocol breaks the complex content down into discrete, independently verifiable claims, while preserving logical relationships.</span></p>
+</div>
+<div class="flowchart-arrow"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">↓</span></div>
+<div class="flowchart-step">
+<h5><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">3. Distributed Verification &amp; Privacy Sharding</span></h5>
+<p><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">The claims are sharded and randomly distributed to a network of diverse AI models run by independent node operators. No single node sees the full content, ensuring privacy.</span></p>
+</div>
+<div class="flowchart-arrow"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">↓</span></div>
+<div class="flowchart-step">
+<h5><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">4. Multi-Model Consensus</span></h5>
+<p><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">The verifier models process the claims and submit their results. Mira's consensus mechanism aggregates the results to determine the validity of each claim.</span></p>
+</div>
+<div class="flowchart-arrow"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">↓</span></div>
+<div class="flowchart-step">
+<h5><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">5. Cryptographic Certificate Generation</span></h5>
+<p><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">The network generates a tamper-proof cryptographic certificate recording the verification outcome, including which models reached consensus. This certificate is returned to the user.</span></p>
+</div>
+</div>
+</div>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Let's illustrate with a simple example from the </span><a href="https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide" target="_blank"><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">Blocmates guide</span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">.</span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">C</span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">onsider the statement: </span><em><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">"Arsenal is a club in London that has won three (3) UEFA Champions League titles."</span></em></p>
+<ol>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Transformation</span>:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> The network breaks this into two claims:
+                    </span><ul>
+<li><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Claim 1: "Arsenal is a club in London."</span></li>
+<li><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Claim 2: "Arsenal has won three (3) UEFA Champions League titles."</span></li>
+</ul>
+</li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Verification</span>:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> These claims are sent to different verifier models. A sports history model would validate Claim 2 as false, while a geography model would validate Claim 1 as true.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Consensus &amp; Output</span>:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> The network reaches a consensus that Claim 1 is valid and Claim 2 is invalid, returning a verified, corrected output to the user with a cryptographic proof of the process.</span></li>
+</ol>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">This systematic approach, which reduces first-pass mistakes from over 30% to below 5%, is what allows Mira to deliver AI outputs with over 95% accuracy </span><a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" target="_blank"><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">DePIN Scan</span></a></span></span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></p>
+<h3 id="section-2-3"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The Economic Engine: Proof-of-Verification and Hybrid Security</span></h3>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Securing a decentralized verification network presents unique challenges. If verification is a simple multiple-choice question, what stops a malicious node from just guessing the answer for a chance at rewards without doing any computational work? Mira's economic security model brilliantly solves this with a hybrid consensus mechanism that combines Proof-of-Work (PoW) and Proof-of-Stake (PoS).</span></p>
+<div class="infographic" data-sk-edited="">
+<h3 class="infographic-title" id="section-2-4"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Infographic: Mira's Hybrid Consensus Model</span></h3>
 <div class="comparison-grid">
 <div class="comparison-card">
-<h5>Traditional Proof-of-Work (e.g., Bitcoin)</h5>
+<h5><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Traditional Proof-of-Work (e.g., Bitcoin)</span></h5>
 <ul>
-<li><strong>Work Done:</strong> Solving arbitrary cryptographic puzzles.</li>
-<li><strong>Goal:</strong> Secure the network through computational cost.</li>
-<li><strong>Value:</strong> The work itself has no intrinsic value beyond securing the ledger.</li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Work Done</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Solving arbitrary cryptographic puzzles.</span></li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Goal</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Secure the network through computational cost.</span></li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Value</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> The work itself has no intrinsic value beyond securing the ledger.</span></li>
 </ul>
 </div>
 <div class="comparison-card">
-<h5>Mira&#39;s Proof-of-Verification (PoW + PoS)</h5>
+<h5><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Mira's Proof-of-Verification (PoW + PoS)</span></h5>
 <ul>
-<li><strong>Proof-of-Work:</strong> The &#34;work&#34; is performing <strong>meaningful AI inference</strong> to verify claims. This is honest, useful computation.</li>
-<li><strong>Proof-of-Stake:</strong> To prevent guessing, node operators must <strong>stake MIRA tokens</strong>. If a node consistently deviates from consensus or provides random answers, its stake is <strong>slashed</strong> (penalized).</li>
-<li><strong>Result:</strong> This hybrid model makes malicious behavior economically irrational, ensuring that nodes are incentivized to perform honest and accurate verification.</li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Proof-of-Work</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> The "work" is performing </span><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">meaningful AI inference</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> to verify claims. This is honest, useful computation.</span></li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Proof-of-Stake</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> To prevent guessing, node operators must </span><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">stake MIRA tokens</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">. If a node consistently deviates from consensus or provides random answers, its stake is </span><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">slashed</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> (penalized).</span></li>
+<li><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(125, 225, 129);">Result</span>:</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> This hybrid model makes malicious behavior economically irrational, ensuring that nodes are incentivized to perform honest and accurate verification.</span></li>
 </ul>
 </div>
 </div>
 </div>
-<p>This elegant system operates on three foundational principles:</p>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">This elegant system operates on three foundational principles:</span></p>
 <ol>
-<li><strong>Rational Economic Behavior:</strong> Node operators act rationally to protect their staked value from slashing penalties.</li>
-<li><strong>Majority Honest Control:</strong> As long as honest operators control the majority of staked value, manipulation attempts are prohibitively expensive.</li>
-<li><strong>Natural Bias Reduction:</strong> The economic incentives attract a diverse range of verifier models, whose varied training and perspectives naturally reduce statistical bias across the network.</li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Rational Economic Behavior:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> Node operators act rationally to protect their staked value from slashing penalties.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Majority Honest Control:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> As long as honest operators control the majority of staked value, manipulation attempts are prohibitively expensive.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Natural Bias Reduction:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> The economic incentives attract a diverse range of verifier models, whose varied training and perspectives naturally reduce statistical bias across the network.</span></li>
 </ol>
-<p>This creates a powerful flywheel: as the network grows, it generates more fees, which fund greater rewards, attracting more diverse and specialized nodes. This, in turn, improves the network&#39;s accuracy, cost, and latency, driving further adoption.</p>
-<h2 id="section-3">The MIRA Token: Fueling a Universe of Verifiable AI</h2>
-<p>The <strong>$MIRA</strong> token is the lifeblood of the Mira Network. It is an ERC-20 token on the Base blockchain that serves as the native currency for all economic activity, security, and governance within the ecosystem. With a fixed total supply of <strong>1 billion tokens</strong>, its design reflects a community-focused philosophy: &#34;the network belongs to those who use it, build on it, and secure it.&#34;</p>
-<h3 id="section-3-1">Token Utility</h3>
-<p>The $MIRA token has several critical functions:</p>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">This creates a powerful flywheel: as the network grows, it generates more fees, which fund greater rewards, attracting more diverse and specialized nodes. This, in turn, improves the network's accuracy, cost, and latency, driving further adoption.</span></p>
+<h2 id="section-3"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The MIRA Token: Fueling a Universe of Verifiable AI</span></h2>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The </span><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">$MIRA</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> token is the lifeblood of the Mira Network. It is an ERC-20 token on the Base blockchain that serves as the native currency for all economic activity, security, and governance within the ecosystem. With a fixed total supply of </span><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">1 billion tokens</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">, its design reflects a community-focused philosophy: "the network belongs to those who use it, build on it, and secure it."</span></p>
+<h3 id="section-3-1"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Token Utility</span></h3>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The $MIRA token has several critical functions:</span></p>
 <ul>
-<li><strong>Staking and Network Security:</strong> Node operators must stake $MIRA to participate in the verification process. This economic stake serves as collateral, which can be slashed for malicious or lazy behavior, thus securing the network.</li>
-<li><strong>Governance:</strong> $MIRA holders can exercise voting privileges on protocol evolution, including technical upgrades, fee structures, and ecosystem design parameters, ensuring decentralized control.</li>
-<li><strong>Payment for Services:</strong> Network fees for AI verification are paid in $MIRA. This includes access to the core APIs like `Verify` and `Verified Generate`.</li>
-<li><strong>Ecosystem Trading Pair:</strong> $MIRA serves as the foundational trading pair for all ecosystem tokens, creating a consistent source of demand as new applications are built on the network.</li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Staking and Network Security:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> Node operators must stake $MIRA to participate in the verification process. This economic stake serves as collateral, which can be slashed for malicious or lazy behavior, thus securing the network.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Governance:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> $MIRA holders can exercise voting privileges on protocol evolution, including technical upgrades, fee structures, and ecosystem design parameters, ensuring decentralized control.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Payment for Services:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> Network fees for AI verification are paid in $MIRA. This includes access to the core APIs like `Verify` and `Verified Generate`.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Ecosystem Trading Pair:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> $MIRA serves as the foundational trading pair for all ecosystem tokens, creating a consistent source of demand as new applications are built on the network.</span></li>
 </ul>
-<h3 id="section-3-2">Tokenomics and Distribution</h3>
-<p>The distribution of the 1 billion $MIRA tokens is strategically designed to foster long-term, sustainable growth and align the incentives of all participants. The initial circulating supply at the Token Generation Event (TGE) on September 26, 2025, was 19.12% <em data-ref-id="1986743146326052866" data-sk-source-text="The distribution of the 1 billion $MIRA tokens is strategically designed to foster long-term, sustainable growth and align the incentives of all participants. The initial circulating supply at the Token Generation Event (TGE) on September 26, 2025, was 19.12%" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052866"></em>.</p>
+<h3 id="section-3-2"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Tokenomics and Distribution</span></h3>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The distribution of the 1 billion $MIRA tokens is strategically designed to foster long-term, sustainable growth and align the incentives of all participants. The initial circulating supply at the Token Generation Event (TGE) on September 26, 2025, was 19.12% .</span></p>
 <div class="infographic">
-<h3 class="infographic-title" id="section-3-3">MIRA Token Distribution (1 Billion Total Supply)</h3>
+<h3 class="infographic-title" id="section-3-3"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">MIRA Token Distribution (1 Billion Total Supply)</span></h3>
 <div class="token-distribution-container">
-<div class="token-chart" id="tokenomics-chart"></div>
+<div class="token-chart" id="tokenomics-chart" _echarts_instance_="ec_1762514139378" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;"></div>
 <div class="token-legend">
 <ul>
-<li><span class="legend-color-box" style="background-color: #5470c6;"></span><strong>Ecosystem Reserve (26%):</strong> For developer grants, partnerships, and growth incentives.</li>
-<li><span class="legend-color-box" style="background-color: #91cc75;"></span><strong>Core Contributors (20%):</strong> For current and future team members, ensuring long-term commitment.</li>
-<li><span class="legend-color-box" style="background-color: #fac858;"></span><strong>Future Node Rewards (16%):</strong> Programmatic emissions to validators for securing the network.</li>
-<li><span class="legend-color-box" style="background-color: #ee6666;"></span><strong>Foundation (15%):</strong> For protocol development, research, and treasury reserves.</li>
-<li><span class="legend-color-box" style="background-color: #73c0de;"></span><strong>Early Investors (14%):</strong> Strategic partners who provided early capital.</li>
-<li><span class="legend-color-box" style="background-color: #3ba272;"></span><strong>Initial Airdrop (6%):</strong> Rewarding early ecosystem participants and community members.</li>
-<li><span class="legend-color-box" style="background-color: #fc8452;"></span><strong>Liquidity Incentives (3%):</strong> For market making and exchange listings.</li>
+<li><span class="legend-color-box" style="background-color: #5470c6;"></span><strong><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">Ecosystem Reserve (26%):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> <span data-sk-edited="" style="color: rgb(255, 255, 255);">For developer grants,</span> <span data-sk-edited="" style="color: rgb(255, 255, 255);">partnerships, and growth incentives.</span></span></li>
+<li><span class="legend-color-box" style="background-color: #91cc75;"></span><strong><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Core Contributors (20%):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;" data-sk-edited=""> <span data-sk-edited="" style="color: rgb(255, 255, 255);">For current and future team</span>&nbsp; &nbsp; &nbsp; &nbsp; <span data-sk-edited="" style="color: rgb(255, 255, 255);">&nbsp;<span style="letter-spacing: 0px; font-size: 0.9em;">members, ensuring long-term commitment.</span></span><span style="letter-spacing: 0px; font-size: 0.9em;"></span></span></li>
+<li><span class="legend-color-box" style="background-color: #fac858;"></span><strong><span style="color: rgb(252, 224, 127); letter-spacing: 0px;" data-sk-edited="">Future Node Rewards (16%):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> <span data-sk-edited="" style="color: rgb(255, 255, 255);">Programmatic emissions to validators for securing the network.</span></span></li>
+<li data-sk-edited=""><span class="legend-color-box" style="background-color: #ee6666;"></span><strong><span style="color: rgb(255, 110, 110); letter-spacing: 0px;" data-sk-edited="">Foundation (15%):</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> For protocol development, research, and treasury reserves.</span></li>
+<li><span class="legend-color-box" style="background-color: #73c0de;"></span><strong data-sk-edited=""><span style="color: rgb(104, 177, 255); letter-spacing: 0px;">Early Investors (14%):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> <span data-sk-edited="" style="color: rgb(255, 255, 255);">Strategic partners who provided early capital.</span></span></li>
+<li><span class="legend-color-box" style="background-color: #3ba272;"></span><strong><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Initial Airdrop (6%):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> <span data-sk-edited="" style="color: rgb(255, 255, 255);">Rewarding early ecosystem participants and community members.</span></span></li>
+<li><span class="legend-color-box" style="background-color: #fc8452;"></span><strong><span style="color: rgb(255, 181, 108); letter-spacing: 0px;" data-sk-edited="">Liquidity Incentives (3%):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> <span data-sk-edited="" style="color: rgb(255, 255, 255);">For market making and exchange listings.</span></span></li>
 </ul>
 </div>
 </div>
 </div>
-<h3 id="section-3-4">Vesting and Long-Term Alignment</h3>
-<p>To prevent market volatility and ensure all stakeholders are aligned with the project&#39;s long-term vision, the token allocation for core contributors and early investors is subject to strict vesting schedules. According to multiple sources, including <a href="https://www.mexc.com/learn/article/what-is-mira-network-mira-coin-complete-guide-to-the-ai-verification-crypto-token/1" target="_blank">MEXC Learn</a> and <a href="https://x.com/klok_app?lang=en" target="_blank">Klok&#39;s official communications</a>:</p>
+<h3 id="section-3-4"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Vesting and Long-Term Alignment</span></h3>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">To prevent market volatility and ensure all stakeholders are aligned with the project's long-term vision, the token allocation for core contributors and early investors is subject to strict vesting schedules. According to multiple sources, including </span><a href="https://www.mexc.com/learn/article/what-is-mira-network-mira-coin-complete-guide-to-the-ai-verification-crypto-token/1" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">MEXC Learn</span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> and </span><a href="https://x.com/klok_app?lang=en" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Klok's official communications</span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">:</span></p>
 <ul>
-<li><strong>Core Contributors (20%):</strong> 36-month vesting schedule with a 12-month cliff.</li>
-<li><strong>Early Investors (14%):</strong> 24-month vesting schedule with a 12-month cliff.</li>
-<li><strong>Foundation (15%):</strong> 36-month vesting with a 6-month cliff.</li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Core Contributors (20%):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> 36-month vesting schedule with a 12-month cliff.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Early Investors (14%):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> 24-month vesting schedule with a 12-month cliff.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Foundation (15%):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> 36-month vesting with a 6-month cliff.</span></li>
 </ul>
-<p>This structure ensures that the team and investors are committed for years, not months, fostering stability and confidence in the project&#39;s future. The circulating supply is projected to reach approximately 33% after one year, 61% after two years, and 100% after seven years.</p>
-<h2 id="section-4">The Mira Ecosystem: A Universe of Trust in Action</h2>
-<p>A protocol is only as strong as the ecosystem built around it. Mira is rapidly cultivating a vibrant network of partners, developers, and applications that leverage its verification infrastructure to deliver next-generation AI services. In May 2025, Mira released an ecosystem map showcasing over <strong>25 partners</strong> across six vertical fields, demonstrating its growing influence <em data-ref-id="1986743146326052867" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052867" data-sk-source-text="A protocol is only as strong as the ecosystem built around it. Mira is rapidly cultivating a vibrant network of partners, developers, and applications that leverage its verification infrastructure to deliver next-generation AI services. In May 2025, Mira released an ecosystem map showcasing over 25 partners across six vertical fields, demonstrating its growing influence"></em>.</p>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">This structure ensures that the team and investors are committed for years, not months, fostering stability and confidence in the project's future. The circulating supply is projected to reach approximately 33% after one year, 61% after two years, and 100% after seven years.</span></p>
+<h2 id="section-4"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The Mira Ecosystem: A Universe of Trust in Action</span></h2>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">A protocol is only as strong as the ecosystem built around it. Mira is rapidly cultivating a vibrant network of partners, developers, and applications that leverage its verification infrastructure to deliver next-generation AI services. In May 2025, Mira released an ecosystem map showcasing over </span><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">25 partners</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> across six vertical fields, demonstrating its growing influence .</span></p>
 <div class="infographic">
-<h3 class="infographic-title" id="section-4-1">Infographic: The Mira Ecosystem Map</h3>
-<div class="ecosystem-map">
-<div class="ecosystem-center">Mira Network</div>
+<h3 class="infographic-title" id="section-4-1"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;" data-sk-edited="">Infographic: The Mira Ecosystem Map</span></h3>
+<div class="ecosystem-map" data-sk-edited="">
+<div class="ecosystem-center" data-sk-edited=""><span style="color: rgb(125, 225, 129); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(255, 255, 255);">Mira</span> Network</span></div>
 <div class="ecosystem-orbit orbit-1"></div>
 <div class="ecosystem-orbit orbit-2"></div>
 <div class="ecosystem-orbit orbit-3"></div>
 <!-- dApps -->
-<div class="ecosystem-partner" style="top: 15%; left: 50%;">Klok</div>
-<div class="ecosystem-partner" style="top: 28%; left: 80%;">GigabrainGG</div>
-<div class="ecosystem-partner" style="top: 50%; left: 85%;">ElizaOS</div>
-<div class="ecosystem-partner" style="top: 72%; left: 80%;">Astro247</div>
-<div class="ecosystem-partner" style="top: 85%; left: 50%;">Learnrite</div>
+<div class="ecosystem-partner" style="top: 15%; left: 50%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Klok</span></div>
+<div class="ecosystem-partner" style="top: 28%; left: 80%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">GigabrainGG</span></div>
+<div class="ecosystem-partner" style="top: 50%; left: 85%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">ElizaOS</span></div>
+<div class="ecosystem-partner" style="top: 72%; left: 80%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Astro247</span></div>
+<div class="ecosystem-partner" style="top: 85%; left: 50%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Learnrite</span></div>
 <!-- Infrastructure -->
-<div class="ecosystem-partner" style="top: 50%; left: 15%;">io.net</div>
-<div class="ecosystem-partner" style="top: 28%; left: 20%;">Irys</div>
-<div class="ecosystem-partner" style="top: 72%; left: 20%;">Kernel</div>
+<div class="ecosystem-partner" style="top: 50%; left: 15%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">io.net</span></div>
+<div class="ecosystem-partner" style="top: 28%; left: 20%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Irys</span></div>
+<div class="ecosystem-partner" style="top: 72%; left: 20%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Kernel</span></div>
 <!-- Open Source &amp; Agents -->
-<div class="ecosystem-partner" style="top: 8%; left: 25%;">Wikisentry</div>
-<div class="ecosystem-partner" style="top: 8%; left: 75%;">Kaito</div>
-<div class="ecosystem-partner" style="top: 92%; left: 25%;">SendAI</div>
-<div class="ecosystem-partner" style="top: 92%; left: 75%;">Zerepy</div>
+<div class="ecosystem-partner" style="top: 8%; left: 25%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Wikisentry</span></div>
+<div class="ecosystem-partner" style="top: 8%; left: 75%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Kaito</span></div>
+<div class="ecosystem-partner" style="top: 92%; left: 25%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">SendAI</span></div>
+<div class="ecosystem-partner" style="top: 92%; left: 75%;"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Zerepy</span></div>
 </div>
 <div class="ecosystem-list">
-<h4>Key Ecosystem Verticals:</h4>
+<h4><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Key Ecosystem Verticals:</span></h4>
 <ul>
-<li><strong>dApps &amp; Applications:</strong> Klok, GigabrainGG, ElizaOS, Astro247, Learnrite</li>
-<li><strong>Infrastructure Partners:</strong> io.net, Irys, Kernel (BNB Chain)</li>
-<li><strong>Agent Frameworks:</strong> SendAI, Zerepy</li>
-<li><strong>Open Source Projects:</strong> Wikisentry, Kaito</li>
-<li><strong>High-Trust Networks:</strong> Plume, Monad, Lagrange</li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">dApps &amp; Applications:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> Klok, GigabrainGG, ElizaOS, Astro247, Learnrite</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Infrastructure Partners:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> io.net, Irys, Kernel (BNB Chain)</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Agent Frameworks:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> SendAI, Zerepy</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Open Source Projects:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> Wikisentry, Kaito</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">High-Trust Networks:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> Plume, Monad, Lagrange</span></li>
 </ul>
 </div>
 </div>
-<h3 id="section-4-2">Key Partnerships and Integrations</h3>
+<h3 id="section-4-2"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Key Partnerships and Integrations</span></h3>
 <ul>
-<li><strong>io.net:</strong> This strategic partnership provides Mira with access to a decentralized GPU infrastructure. As noted by <a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" target="_blank">DePIN Scan</a>, this collaboration enhances Mira&#39;s operations by reducing costs and latency, and it supports Mira&#39;s Node Delegator Program, which allows community members to contribute GPU resources for network rewards.</li>
-<li><strong>Irys (formerly Bundlr Network):</strong> Mira&#39;s integration with Irys provides a solution for permanent, cost-effective data storage. This is crucial for storing the vast streams of data from verification operations and cryptographic proofs, with Irys&#39;s &#34;at cost&#34; pricing model aiming to reduce storage costs by up to 40% <em data-ref-id="1986743146326052868" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052868" data-sk-source-text="Irys (formerly Bundlr Network): Mira&amp;#39;s integration with Irys provides a solution for permanent, cost-effective data storage. This is crucial for storing the vast streams of data from verification operations and cryptographic proofs, with Irys&amp;#39;s &amp;#34;at cost&amp;#34; pricing model aiming to reduce storage costs by up to 40%"></em>.</li>
-<li><strong>Kernel (BNB Chain):</strong> As Kernel&#39;s official AI coprocessor, Mira&#39;s Dynamic Validator Network (DVN) is set to establish a new standard for trustless AI execution within the massive BNB ecosystem, opening the door to a huge new user base <em data-ref-id="1986743146326052869" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052869" data-sk-source-text="Kernel (BNB Chain): As Kernel&amp;#39;s official AI coprocessor, Mira&amp;#39;s Dynamic Validator Network (DVN) is set to establish a new standard for trustless AI execution within the massive BNB ecosystem, opening the door to a huge new user base"></em>.</li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">io.net:</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> This strategic partnership provides Mira with access to a decentralized GPU infrastructure. As noted by </span><a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">DePIN Scan</span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">, this collaboration enhances Mira's operations by reducing costs and latency, and it supports Mira's Node Delegator Program, which allows community members to contribute GPU resources for network rewards.</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Irys (formerly Bundlr Network):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> Mira's integration with Irys provides a solution for permanent, cost-effective data storage. This is crucial for storing the vast streams of data from verification operations and cryptographic proofs, with Irys's "at cost" pricing model aiming to reduce storage costs by up to 40% .</span></li>
+<li><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Kernel (BNB Chain):</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> As Kernel's official AI coprocessor, Mira's Dynamic Validator Network (DVN) is set to establish a new standard for trustless AI execution within the massive BNB ecosystem, opening the door to a huge new user base .</span></li>
 </ul>
-<h3 id="section-4-3">Flagship Application: Klok AI</h3>
-<p>The most prominent example of Mira&#39;s technology in action is <strong>Klok</strong>, a multi-model AI chat application built on the Mira Network. Klok leverages Mira&#39;s infrastructure to provide verified, reliable answers by having top-tier LLMs like GPT-4o, DeepSeek, and Llama 3 collaboratively verify prompts.</p>
-<p>Klok is also the primary vehicle for community engagement through the <strong>Mira Points program</strong>. Users can earn points by interacting with the Klok app, which are expected to play a role in future rewards and airdrops, driving early adoption and network participation <em data-ref-id="1986743146326052870" data-sk-source-text="Klok is also the primary vehicle for community engagement through the Mira Points program . Users can earn points by interacting with the Klok app, which are expected to play a role in future rewards and airdrops, driving early adoption and network participation" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052870"></em>.</p>
-<h3 id="section-4-4">Empowering Developers with the Mira SDK</h3>
-<p>Mira is designed to be developer-first. The <strong>Mira Network SDK</strong> provides a unified, OpenAI-compatible API that allows developers to seamlessly integrate multiple language models into their applications. This abstracts away the complexity of managing different APIs and provides built-in capabilities for smart routing, load balancing, and error handling.</p>
+<h3 id="section-4-3"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Flagship Application: Klok AI</span></h3>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The most prominent example of Mira's technology in action is </span><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Klok</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">, a multi-model AI chat application built on the Mira Network. Klok leverages Mira's infrastructure to provide verified, reliable answers by having top-tier LLMs like GPT-4o, DeepSeek, and Llama 3 collaboratively verify prompts.</span></p>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Klok is also the primary vehicle for community engagement through the </span><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira Points program</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">. Users can earn points by interacting with the Klok app, which are expected to play a role in future rewards and airdrops, driving early adoption and network participation .</span></p>
+<h3 id="section-4-4"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Empowering Developers with the Mira SDK</span></h3>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira is designed to be developer-first. The </span><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira Network SDK</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> provides a unified, OpenAI-compatible API that allows developers to seamlessly integrate multiple language models into their applications. This abstracts away the complexity of managing different APIs and provides built-in capabilities for smart routing, load balancing, and error handling.</span></p>
 <div class="infographic">
-<h3 class="infographic-title" id="section-4-5">Mira SDK vs. Traditional Approach</h3>
+<h3 class="infographic-title" id="section-4-5"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;" data-sk-edited="">Mira SDK vs. Traditional Approach</span></h3>
 <div class="table-container">
-<table>
+<table class="">
 <thead>
 <tr>
-<th>Feature</th>
-<th>Mira SDK</th>
-<th>Traditional Approach</th>
+<th><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Feature</span></th>
+<th><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira SDK</span></th>
+<th><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Traditional Approach</span></th>
 </tr>
 </thead>
-
 <tbody><tr>
-<td><strong>Multi-Model Support</strong></td>
-<td>Single unified API</td>
-<td>Separate APIs for each model</td>
+<td><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Multi-Model Support</span></strong></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Single unified API</span></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Separate APIs for each model</span></td>
 </tr>
 <tr>
-<td><strong>Load Balancing</strong></td>
-<td>Built-in and automatic</td>
-<td>Requires custom implementation</td>
+<td><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Load Balancing</span></strong></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Built-in and automatic</span></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Requires custom implementation</span></td>
 </tr>
 <tr>
-<td><strong>Flow Control</strong></td>
-<td>Automatic handling of request patterns</td>
-<td>Requires manual implementation</td>
+<td><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Flow Control</span></strong></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Automatic handling of request patterns</span></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Requires manual implementation</span></td>
 </tr>
 <tr>
-<td><strong>Error Handling</strong></td>
-<td>Standardized across all models</td>
-<td>Model-specific error handling</td>
+<td><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Error Handling</span></strong></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Standardized across all models</span></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Model-specific error handling</span></td>
 </tr>
 <tr>
-<td><strong>Usage Tracking</strong></td>
-<td>Integrated monitoring</td>
-<td>Requires custom tracking solutions</td>
+<td><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Usage Tracking</span></strong></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Integrated monitoring</span></td>
+<td><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Requires custom tracking solutions</span></td>
 </tr>
-
 </tbody></table>
 </div>
-<p style="text-align:center; margin-top:20px; font-style:italic; color: #8b949e;">Source: <a href="https://docs.mira.network/network/get-started/introduction" target="_blank">Mira Network Documentation</a></p>
+<p style="text-align: center; margin-top: 20px; font-style: italic; color: rgb(255, 255, 255);" data-sk-edited=""><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span><span data-sk-edited="" style="color: rgb(222, 222, 222);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span><span data-sk-edited="" style="color: rgb(255, 255, 255);"><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Source</span><span data-sk-edited="" style="color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">:</span></span></span><span data-sk-edited="" style="color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span></span></span><span data-sk-edited="" style="color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span><a href="https://docs.mira.network/network/get-started/introduction" target="_blank"><span style="color: rgb(255, 255, 255); letter-spacing: 0px; text-decoration: none;" data-sk-edited="">Mira Network Documentation</span></a></span><a href="https://docs.mira.network/network/get-started/introduction" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a></p>
 </div>
-<p>This powerful toolkit dramatically reduces development time and allows builders to focus on creating unique user experiences, rather than wrestling with backend infrastructure. The testnet already offers a suite of APIs, including `Generate`, `Verify`, and the powerful `Verified Generate`, which delivers outputs with 95%+ accuracy <em data-ref-id="1986743146326052871" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052871" data-sk-source-text="This powerful toolkit dramatically reduces development time and allows builders to focus on creating unique user experiences, rather than wrestling with backend infrastructure. The testnet already offers a suite of APIs, including `Generate`, `Verify`, and the powerful `Verified Generate`, which delivers outputs with 95%+ accuracy"></em>.</p>
-<h2 id="section-5">Mira&#39;s Roadmap: The Path to a Fully Autonomous Future</h2>
-<p>Mira&#39;s vision extends far beyond its current capabilities. The project&#39;s roadmap outlines a clear path toward creating a comprehensive infrastructure for fully autonomous AI systems, enabling agents to discover each other, transact value, and coordinate complex tasks with verifiable trust.</p>
-<div class="infographic">
-<h3 class="infographic-title" id="section-5-1">Mira Network Roadmap</h3>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">This powerful toolkit dramatically reduces development time and allows builders to focus on creating unique user experiences, rather than wrestling with backend infrastructure. The testnet already offers a suite of APIs, including `Generate`, `Verify`, and the powerful `Verified Generate`, which delivers outputs with 95%+ accuracy .</span></p>
+<h2 id="section-5"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira's Roadmap: The Path to a Fully Autonomous Future</span></h2>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira's vision extends far beyond its current capabilities. The project's roadmap outlines a clear path toward creating a comprehensive infrastructure for fully autonomous AI systems, enabling agents to discover each other, transact value, and coordinate complex tasks with verifiable trust.</span></p>
+<div class="infographic" data-sk-edited="">
+<h3 class="infographic-title" id="section-5-1"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Mira Network Roadmap</span></h3>
 <div class="roadmap-timeline">
 <div class="roadmap-item">
 <div class="roadmap-content">
-<h5>September 26, 2025</h5>
-<p><strong>Mainnet Launch &amp; TGE.</strong> Activated the mainnet, enabling staking, governance, and verifiable AI services. The $MIRA token was listed on major exchanges like KuCoin, MEXC, and Bitget.</p>
+<h5><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">September 26, 2025</span></h5>
+<p><strong><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Mainnet Launch &amp; TGE.</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Activated the mainnet, enabling staking, governance, and verifiable AI services. The $MIRA token was listed on major exchanges like KuCoin, MEXC, and Bitget.</span></p>
 </div>
 </div>
 <div class="roadmap-item">
 <div class="roadmap-content">
-<h5>Q4 2025</h5>
-<p><strong>Full Klok Verification Rollout.</strong> Klok, Mira&#39;s flagship chat app, will fully integrate decentralized verification, showcasing the network&#39;s capabilities to its millions of users.</p>
+<h5><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">Q4 2025</span></h5>
+<p><strong><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Full Klok Verification Rollout.</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Klok, Mira's flagship chat app, will fully integrate decentralized verification, showcasing the network's capabilities to its millions of users.</span></p>
 </div>
 </div>
 <div class="roadmap-item">
 <div class="roadmap-content">
-<h5>Ongoing</h5>
-<p><strong>Irys Storage Integration.</strong> Partnership to integrate permanent, cost-effective storage for verification proofs, enhancing data integrity and auditability.</p>
+<h5><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">Ongoing</span></h5>
+<p><strong><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Irys Storage Integration.</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> Partnership to integrate permanent, cost-effective storage for verification proofs, enhancing data integrity and auditability.</span></p>
 </div>
 </div>
 <div class="roadmap-item">
 <div class="roadmap-content">
-<h5>2026 &amp; Beyond</h5>
-<p><strong>Ecosystem Expansion &amp; Autonomous Systems.</strong> Focus on expanding partnerships, growing the developer ecosystem, and building out the full protocol stack for autonomous AI agents, including identity, memory, and payment rails.</p>
+<h5><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">2026 &amp; Beyond</span></h5>
+<p><strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"></span></strong><span data-sk-edited="" style="color: rgb(125, 225, 129);"><strong><span style="color: rgb(125, 225, 129); letter-spacing: 0px;" data-sk-edited="">Ecosystem Expansion &amp; Autonomous Systems.</span></strong><span style="color: rgb(255, 255, 255); letter-spacing: 0px;"> </span></span><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Focus on expanding partnerships, growing the developer ecosystem, and building out the full protocol stack for autonomous AI agents, including identity, memory, and payment rails.</span></p>
 </div>
 </div>
 </div>
 </div>
-<h2 id="section-6">The 2025 Crypto Landscape: A Perfect Storm for Mira&#39;s Growth</h2>
-<p>Mira&#39;s launch is perfectly timed with several powerful macro trends shaping the 2025 crypto and tech markets. After a period of volatility, the crypto market has entered a new phase of maturation and institutional adoption. The total crypto market cap crossed the <strong>$4 trillion threshold</strong> for the first time in 2025, with stablecoins processing an astonishing $46 trillion in annual transaction volume, rivaling traditional payment networks like Visa <em data-ref-id="1986743146326052872" class="sk-source-tag" data-skywork="text_badge" data-sk-source-type="model" data-sk-source-id="1986743146326052872" data-sk-source-text="Mira&amp;#39;s launch is perfectly timed with several powerful macro trends shaping the 2025 crypto and tech markets. After a period of volatility, the crypto market has entered a new phase of maturation and institutional adoption. The total crypto market cap crossed the $4 trillion threshold for the first time in 2025, with stablecoins processing an astonishing $46 trillion in annual transaction volume, rivaling traditional payment networks like Visa"></em>.</p>
-<div class="chart-container" id="market-cap-chart"></div>
-<p class="caption" style="text-align:center;">The AI token market has seen explosive growth, reflecting intense investor interest in the convergence of AI and crypto. Data source: <a href="https://explodingtopics.com/blog/cryptocurrency-trends" target="_blank">Exploding Topics</a>.</p>
-<p>This institutional embrace, coupled with a more constructive regulatory environment in the US, has created fertile ground for projects with real-world utility. As noted in the <a href="https://www.coinbase.com/institutional/research-insights/research/market-intelligence/guide-to-crypto-markets-q1-2025" target="_blank">Coinbase Q1 2025 Guide to Crypto Markets</a>, investors are increasingly focused on projects that bridge the gap between crypto and traditional industries. Mira, with its clear value proposition of solving a critical problem for the multi-trillion-dollar AI industry, is perfectly positioned to capture this wave of interest.</p>
-<h2 id="section-7">Conclusion: The Dawn of Verifiable Intelligence</h2>
-<p>The rapid proliferation of AI has created a world of immense opportunity, but also one of profound risk. Without a mechanism to ensure the truthfulness of AI-generated information, we risk building our future on a foundation of digital quicksand. Mira Network is not just another AI crypto project; it is the critical infrastructure required to avert this crisis.</p>
-<p>By masterfully combining decentralized consensus, a robust crypto-economic model, and a developer-friendly platform, Mira is creating the trust layer for the next generation of the internet. It is building a future where AI can be relied upon for high-stakes, autonomous tasks—a future where intelligence is not just artificial, but verifiable.</p>
-<p>Whether you are a developer looking to build the next great AI application, an investor seeking projects with fundamental value, or simply a citizen of the digital world concerned with the integrity of information, Mira&#39;s mission is your mission. The journey to a verifiable AI future has begun.</p>
-<div class="cta-box">
-<h3 id="section-7-1">Join the Mira Revolution</h3>
-<p>The future of AI is being built today. Become part of the movement creating a more trustworthy and reliable digital world.</p>
-<a class="cta-button" href="https://mira.network/" target="_blank">Visit Mira Network</a>
-<a class="cta-button" href="https://discord.gg/mira-network" target="_blank">Join the Discord</a>
-<a class="cta-button" href="https://x.com/mira_network" target="_blank">Follow @miranetwork</a>
-<a class="cta-button" href="https://docs.mira.network/" target="_blank">Read the Docs</a>
+<h2 id="section-6"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The 2025 Crypto Landscape: A Perfect Storm for Mira's Growth</span></h2>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Mira's launch is perfectly timed with several powerful macro trends shaping the 2025 crypto and tech markets. After a period of volatility, the crypto market has entered a new phase of maturation and institutional adoption. The total crypto market cap crossed the </span><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></strong><span data-sk-edited="" style="color: rgb(104, 177, 255);"><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">$</span></strong><span data-sk-edited="" style="color: rgb(104, 177, 255);"><strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"><span data-sk-edited="" style="color: rgb(104, 177, 255);">4 trillion thresho</span>ld</span></strong><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">for the first time in 2025, with stablecoins processing an astonishing $46 trillion in annual transaction volume, rivaling traditional payment networks like Visa .</span></p>
+<div class="chart-container" id="market-cap-chart" _echarts_instance_="ec_1762514139379" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;"></div>
+<p class="caption" style="text-align:center;"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The AI token market has seen explosive growth, reflecting intense investor interest in the convergence of AI and crypto. Data source:</span><span data-sk-edited="" style="color: rgb(104, 177, 255);"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"> </span><a href="https://explodingtopics.com/blog/cryptocurrency-trends" target="_blank"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></a><span data-sk-edited="" style="color: rgb(104, 177, 255);"><a href="https://explodingtopics.com/blog/cryptocurrency-trends" target="_blank"><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">Exploding Topics</span></a>&nbsp;.</span></span><span style="color: rgb(0, 0, 0); letter-spacing: 0px;"></span></p>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">This institutional embrace, coupled with a more constructive regulatory environment in the US, has created fertile ground for projects with real-world utility. As noted in the </span><a href="https://www.coinbase.com/institutional/research-insights/research/market-intelligence/guide-to-crypto-markets-q1-2025" target="_blank"><span style="color: rgb(104, 177, 255); letter-spacing: 0px;" data-sk-edited="">Coinbase Q1 2025 Guide to Crypto Markets</span></a><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">, investors are increasingly focused on projects that bridge the gap between crypto and traditional industries. Mira, with its clear value proposition of solving a critical problem for the multi-trillion-dollar AI industry, is perfectly positioned to capture this wave of interest.</span></p>
+<h2 id="section-7"><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Conclusion: The Dawn of Verifiable Intelligence</span></h2>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">The rapid proliferation of AI has created a world of immense opportunity, but also one of profound risk. Without a mechanism to ensure the truthfulness of AI-generated information, we risk building our future on a foundation of digital quicksand. Mira Network is not just another AI crypto project; it is the critical infrastructure required to avert this crisis.</span></p>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;" data-sk-edited="">By masterfully combining decentralized consensus, a robust crypto-economic model, and a developer-friendly platform, Mira is creating the trust layer for the next generation of the internet. It is building a future where AI can be relied upon for high-stakes, autonomous tasks a future where intelligence is not just artificial, but verifiable.</span></p>
+<p><span style="color: rgb(0, 0, 0); letter-spacing: 0px;">Whether you are a developer looking to build the next great AI application, an investor seeking projects with fundamental value, or simply a citizen of the digital world concerned with the integrity of information, Mira's mission is your mission. The journey to a verifiable AI future has begun.</span></p>
+<div class="cta-box" data-sk-edited="">
+<h3 id="section-7-1"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">Join the Mira Revolution</span></h3>
+<p><span style="color: rgb(255, 255, 255); letter-spacing: 0px;">The future of AI is being built today. Become part of the movement creating a more trustworthy and reliable digital world.</span></p>
+<a class="cta-button" href="https://mira.network/" target="_blank"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;" data-sk-edited="">Visit Mira Network</span></a>
+<a class="cta-button" href="https://discord.gg/mira-network" target="_blank"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;" data-sk-edited="">Join the Discord</span></a>
+<a class="cta-button" href="https://x.com/miranetwork" target="_blank"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;" data-sk-edited="">Follow @miranetwork</span></a>
+<a class="cta-button" href="https://docs.mira.network/" target="_blank"><span style="color: rgb(255, 255, 255); letter-spacing: 0px;" data-sk-edited="">Read the Docs</span></a>
 </div>
 <div class="reference-container">
-			<div class="reference-section">
-				<h3 class="reference-title">Reference</h3>
-				<div class="reference-list">
-					
-					<div class="reference-item">
-						<span class="reference-number">[1]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Latest Mira News - (MIRA) Future Outlook, Trends &amp; Market Insights</span>
-									
-							</div>
-							<a href="https://coinmarketcap.com/cmc-ai/mira-network/latest-updates/" class="reference-link" target="_blank">
-								https://coinmarketcap.com/cmc-ai/mira-network/latest-updates/
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[2]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">What is MIRA Network (MIRA Coin)? Complete Guide to ...</span>
-									
-							</div>
-							<a href="https://www.mexc.com/learn/article/what-is-mira-network-mira-coin-complete-guide-to-the-ai-verification-crypto-token/1" class="reference-link" target="_blank">
-								https://www.mexc.com/learn/article/what-is-mira-network-mira-coin-complete-guide-to-the-ai-verification-crypto-token/1
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[3]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Mira Unveils MIRA Tokenomics on Base Network</span>
-									
-							</div>
-							<a href="https://phemex.com/news/article/mira-unveils-tokenomics-for-mira-token-on-base-network-20850" class="reference-link" target="_blank">
-								https://phemex.com/news/article/mira-unveils-tokenomics-for-mira-token-on-base-network-20850
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[4]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Decentralized AI Infrastructure Mira Releases Ecosystem ...</span>
-									
-							</div>
-							<a href="https://www.bitget.com/news/detail/12560604784207" class="reference-link" target="_blank">
-								https://www.bitget.com/news/detail/12560604784207
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[5]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Writing - Mira Network</span>
-									
-							</div>
-							<a href="https://mira.network/writing" class="reference-link" target="_blank">
-								https://mira.network/writing
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[6]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Potential Klok Airdrop » How to be eligible?</span>
-									
-							</div>
-							<a href="https://airdrops.io/klok/" class="reference-link" target="_blank">
-								https://airdrops.io/klok/
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[7]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Mira Network Launches highly anticipated next Gen Suite ...</span>
-									
-							</div>
-							<a href="https://thedefiant.io/news/defi/mira-network-launches-highly-anticipated-next-gen-suite-of-api-s-and-testnet-for-verified-ai" class="reference-link" target="_blank">
-								https://thedefiant.io/news/defi/mira-network-launches-highly-anticipated-next-gen-suite-of-api-s-and-testnet-for-verified-ai
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[8]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">State of Crypto 2025: The year crypto went mainstream</span>
-									
-							</div>
-							<a href="https://a16zcrypto.com/posts/article/state-of-crypto-report-2025/" class="reference-link" target="_blank">
-								https://a16zcrypto.com/posts/article/state-of-crypto-report-2025/
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[9]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Mira Network: Infrastructure for AI You Can Trust - Blocmates</span>
-									
-							</div>
-							<a href="https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide" class="reference-link" target="_blank">
-								https://www.blocmates.com/articles/mira-network-infrastructure-for-ai-you-can-trust-a-blocmates-guide
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[10]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">[PDF] Mira: A Decentralized Network for Trustless AI Output Verification</span>
-									
-							</div>
-							<a href="https://mira.network/research/mira-whitepaper.pdf" class="reference-link" target="_blank">
-								https://mira.network/research/mira-whitepaper.pdf
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[11]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Top 7 Cryptocurrency Trends (2025 and Beyond)</span>
-									
-							</div>
-							<a href="https://explodingtopics.com/blog/cryptocurrency-trends" class="reference-link" target="_blank">
-								https://explodingtopics.com/blog/cryptocurrency-trends
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[12]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Guide to Crypto Markets: Q1 2025</span>
-									
-							</div>
-							<a href="https://www.coinbase.com/institutional/research-insights/research/market-intelligence/guide-to-crypto-markets-q1-2025" class="reference-link" target="_blank">
-								https://www.coinbase.com/institutional/research-insights/research/market-intelligence/guide-to-crypto-markets-q1-2025
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[13]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">io.net and Mira Network Forge Partnership to Enhance AI Reliability</span>
-									
-							</div>
-							<a href="https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability" class="reference-link" target="_blank">
-								https://depinscan.io/news/2025-04-29/io-net-and-mira-network-forge-partnership-to-enhance-ai-reliability
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[14]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">MIRA&#39;s Market Debut and Growth Potential: Early-Mover Advantage ...</span>
-									
-							</div>
-							<a href="https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/" class="reference-link" target="_blank">
-								https://www.ainvest.com/news/mira-market-debut-growth-potential-early-mover-advantage-ai-infrastructure-2509/
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[15]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Introduction - Mira Network</span>
-									
-							</div>
-							<a href="https://docs.mira.network/network/get-started/introduction" class="reference-link" target="_blank">
-								https://docs.mira.network/network/get-started/introduction
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[16]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">MIRA: THE TRUST LAYER FOR AI. How This Project Is ...</span>
-									
-							</div>
-							<a href="https://medium.com/@jenniferchukwuma2020/mira-the-trust-layer-for-ai-bae204e44672" class="reference-link" target="_blank">
-								https://medium.com/@jenniferchukwuma2020/mira-the-trust-layer-for-ai-bae204e44672
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[17]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Mira Network</span>
-									
-							</div>
-							<a href="https://mira.network/" class="reference-link" target="_blank">
-								https://mira.network/
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[18]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Is the next $MIRA about to ignite the Base ecosystem?</span>
-									
-							</div>
-							<a href="https://www.binance.com/en/square/post/30100471193481" class="reference-link" target="_blank">
-								https://www.binance.com/en/square/post/30100471193481
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[19]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Klok (@klok_app) / Posts / X</span>
-									
-							</div>
-							<a href="https://x.com/klok_app?lang=en" class="reference-link" target="_blank">
-								https://x.com/klok_app?lang=en
-							</a>
-						</div>
-					</div>
-					
-					<div class="reference-item">
-						<span class="reference-number">[20]</span>
-						<div class="reference-content">
-							<div class="reference-text-container">
-								<span class="reference-text">Blockchain and Digital Assets Outlook 2025 - BPM</span>
-									
-							</div>
-							<a href="https://www.bpm.com/insights/blockchain-and-digital-assets-outlook-2025/" class="reference-link" target="_blank">
-								https://www.bpm.com/insights/blockchain-and-digital-assets-outlook-2025/
-							</a>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div></div>
-<script>
+<div class="reference-section">
+<h3 class="reference-title" data-sk-edited=""><br></h3><div class="reference-list"><div class="reference-item">
+</div>
+</div>
+</div>
+</div></div><script>
         // ECharts for Tokenomics
         var tokenomicsChart = echarts.init(document.getElementById('tokenomics-chart'), 'dark');
         var tokenomicsOption = {
@@ -1241,6 +1702,4 @@ tr:nth-child(even) {
             tokenomicsChart.resize();
             marketCapChart.resize();
         });
-    </script>
-
-</body></html>
+    </script></body></html>
